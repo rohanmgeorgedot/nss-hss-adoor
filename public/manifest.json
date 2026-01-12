@@ -1,8 +1,8 @@
 {
   "name": "NSS HSS Adoor",
   "short_name": "NSS HSS Adoor",
-  "description": "Official app of NSS HSS Adoor - Learn with Culture, Succeed with Values. Established 1934, Kerala.",
-  "start_url": "/",
+  "description": "Official app of NSS HSS Adoor - Student & Teacher Portal. Established 1934, Kerala.",
+  "start_url": "/app",
   "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",

@@ -507,8 +507,10 @@ export default function TeacherDashboard() {
         <div className="max-w-4xl mx-auto flex items-center justify-around">
           <button
             onClick={() => setActiveTab("overview")}
-            className={`flex flex-col items-center gap-1 px-4 py-2 rounded-xl transition-all cursor-pointer ${
-              activeTab === "overview" ? "text-primary" : "text-gray-400"
+            className={`flex flex-col items-center gap-1 px-5 py-2 rounded-xl transition-all cursor-pointer ${
+              activeTab === "overview" 
+                ? "text-primary bg-primary/10" 
+                : "text-gray-400 hover:text-primary hover:bg-gray-100 active:scale-95"
             }`}
           >
             <FaHome className="text-lg" />
@@ -516,8 +518,10 @@ export default function TeacherDashboard() {
           </button>
           <button
             onClick={() => setActiveTab("mark")}
-            className={`flex flex-col items-center gap-1 px-4 py-2 rounded-xl transition-all cursor-pointer ${
-              activeTab === "mark" ? "text-primary" : "text-gray-400"
+            className={`flex flex-col items-center gap-1 px-5 py-2 rounded-xl transition-all cursor-pointer ${
+              activeTab === "mark" 
+                ? "text-primary bg-primary/10" 
+                : "text-gray-400 hover:text-primary hover:bg-gray-100 active:scale-95"
             }`}
           >
             <FaUserCheck className="text-lg" />
@@ -525,8 +529,10 @@ export default function TeacherDashboard() {
           </button>
           <button
             onClick={() => setActiveTab("students")}
-            className={`flex flex-col items-center gap-1 px-4 py-2 rounded-xl transition-all cursor-pointer ${
-              activeTab === "students" ? "text-primary" : "text-gray-400"
+            className={`flex flex-col items-center gap-1 px-5 py-2 rounded-xl transition-all cursor-pointer ${
+              activeTab === "students" 
+                ? "text-primary bg-primary/10" 
+                : "text-gray-400 hover:text-primary hover:bg-gray-100 active:scale-95"
             }`}
           >
             <FaUsers className="text-lg" />

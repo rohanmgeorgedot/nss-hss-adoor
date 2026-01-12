@@ -293,10 +293,10 @@ export default function StudentDashboard() {
         <div className="max-w-4xl mx-auto flex items-center justify-around">
           <button
             onClick={() => setActiveTab("overview")}
-            className={`flex flex-col items-center gap-1 px-6 py-2 rounded-xl transition-all cursor-pointer ${
+            className={`flex flex-col items-center gap-1 px-8 py-2 rounded-xl transition-all cursor-pointer ${
               activeTab === "overview" 
-                ? "text-primary" 
-                : "text-gray-400"
+                ? "text-primary bg-primary/10" 
+                : "text-gray-400 hover:text-primary hover:bg-gray-100 active:scale-95"
             }`}
           >
             <FaHome className="text-lg" />
@@ -304,10 +304,10 @@ export default function StudentDashboard() {
           </button>
           <button
             onClick={() => setActiveTab("attendance")}
-            className={`flex flex-col items-center gap-1 px-6 py-2 rounded-xl transition-all cursor-pointer ${
+            className={`flex flex-col items-center gap-1 px-8 py-2 rounded-xl transition-all cursor-pointer ${
               activeTab === "attendance" 
-                ? "text-primary" 
-                : "text-gray-400"
+                ? "text-primary bg-primary/10" 
+                : "text-gray-400 hover:text-primary hover:bg-gray-100 active:scale-95"
             }`}
           >
             <FaCalendarAlt className="text-lg" />
