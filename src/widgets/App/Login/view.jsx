@@ -116,7 +116,7 @@ export default function Login() {
             <button
               type="button"
               onClick={() => setUserType("student")}
-              className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-lg text-sm font-medium transition-all ${
+              className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-lg text-sm font-medium transition-all cursor-pointer ${
                 userType === "student"
                   ? "bg-primary text-white shadow-lg"
                   : "text-gray-400 hover:text-white"
@@ -128,7 +128,7 @@ export default function Login() {
             <button
               type="button"
               onClick={() => setUserType("teacher")}
-              className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-lg text-sm font-medium transition-all ${
+              className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-lg text-sm font-medium transition-all cursor-pointer ${
                 userType === "teacher"
                   ? "bg-primary text-white shadow-lg"
                   : "text-gray-400 hover:text-white"
@@ -179,7 +179,7 @@ export default function Login() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 transition-colors cursor-pointer"
                 >
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </button>

@@ -146,7 +146,7 @@ export default function StudentDashboard() {
           </div>
           <button
             onClick={handleLogout}
-            className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+            className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
             title="Logout"
           >
             <FaSignOutAlt />
@@ -293,7 +293,7 @@ export default function StudentDashboard() {
         <div className="max-w-4xl mx-auto flex items-center justify-around">
           <button
             onClick={() => setActiveTab("overview")}
-            className={`flex flex-col items-center gap-1 px-6 py-2 rounded-xl transition-all ${
+            className={`flex flex-col items-center gap-1 px-6 py-2 rounded-xl transition-all cursor-pointer ${
               activeTab === "overview" 
                 ? "text-primary" 
                 : "text-gray-400"
@@ -304,7 +304,7 @@ export default function StudentDashboard() {
           </button>
           <button
             onClick={() => setActiveTab("attendance")}
-            className={`flex flex-col items-center gap-1 px-6 py-2 rounded-xl transition-all ${
+            className={`flex flex-col items-center gap-1 px-6 py-2 rounded-xl transition-all cursor-pointer ${
               activeTab === "attendance" 
                 ? "text-primary" 
                 : "text-gray-400"

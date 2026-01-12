@@ -49,21 +49,38 @@ export default function TeacherDashboard() {
     
     setIsLoadingStudents(true);
     try {
-      const { data, error } = await supabase
+      // Fetch students
+      const { data: studentsData, error: studentsError } = await supabase
         .from('students')
         .select('*')
         .eq('class_id', userProfile.class_id)
         .order('roll_no', { ascending: true });
 
-      if (error) throw error;
+      if (studentsError) throw studentsError;
 
-      // Add status field for attendance marking
-      const studentsWithStatus = (data || []).map(s => ({
+      // Fetch today's attendance
+      const today = new Date().toISOString().split('T')[0];
+      const { data: attendanceData, error: attendanceError } = await supabase
+        .from('attendance')
+        .select('student_id, status')
+        .eq('class_id', userProfile.class_id)
+        .eq('date', today);
+
+      if (attendanceError) throw attendanceError;
+
+      // Create a map of student_id to attendance status
+      const attendanceMap = {};
+      (attendanceData || []).forEach(a => {
+        attendanceMap[a.student_id] = a.status;
+      });
+
+      // Add status field for attendance marking (use existing attendance if available)
+      const studentsWithStatus = (studentsData || []).map(s => ({
         id: s.id,
         name: s.name,
         rollNo: s.roll_no,
         admNo: s.adm_no,
-        status: null,
+        status: attendanceMap[s.id] || null,
       }));
 
       setStudents(studentsWithStatus);
@@ -231,7 +248,7 @@ export default function TeacherDashboard() {
           </div>
           <button
             onClick={handleLogout}
-            className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+            className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
             title="Logout"
           >
             <FaSignOutAlt />
@@ -309,7 +326,7 @@ export default function TeacherDashboard() {
               {/* Quick Action */}
               <button
                 onClick={() => setActiveTab("mark")}
-                className="w-full bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-left hover:border-primary hover:shadow-md transition-all group"
+                className="w-full bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-left hover:border-primary hover:shadow-md transition-all group cursor-pointer"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
@@ -349,13 +366,13 @@ export default function TeacherDashboard() {
                   <div className="flex gap-2">
                     <button
                       onClick={() => handleMarkAll("present")}
-                      className="flex-1 sm:flex-none px-3 py-2.5 bg-green-500/10 text-green-600 rounded-xl text-xs font-medium hover:bg-green-500/20 transition-all flex items-center justify-center gap-1"
+                      className="flex-1 sm:flex-none px-3 py-2.5 bg-green-500/10 text-green-600 rounded-xl text-xs font-medium hover:bg-green-500/20 transition-all flex items-center justify-center gap-1 cursor-pointer"
                     >
                       <FaCheckCircle /> All Present
                     </button>
                     <button
                       onClick={() => handleMarkAll("absent")}
-                      className="flex-1 sm:flex-none px-3 py-2.5 bg-red-500/10 text-red-600 rounded-xl text-xs font-medium hover:bg-red-500/20 transition-all flex items-center justify-center gap-1"
+                      className="flex-1 sm:flex-none px-3 py-2.5 bg-red-500/10 text-red-600 rounded-xl text-xs font-medium hover:bg-red-500/20 transition-all flex items-center justify-center gap-1 cursor-pointer"
                     >
                       <FaTimesCircle /> All Absent
                     </button>
@@ -396,7 +413,7 @@ export default function TeacherDashboard() {
                       <div className="flex gap-2">
                         <button
                           onClick={() => handleMarkAttendance(student.id, "present")}
-                          className={`h-9 w-9 rounded-lg flex items-center justify-center transition-all ${
+                          className={`h-9 w-9 rounded-lg flex items-center justify-center transition-all cursor-pointer ${
                             student.status === "present"
                               ? "bg-green-500 text-white"
                               : "bg-gray-100 text-gray-400 hover:bg-green-500/10 hover:text-green-500"
@@ -406,7 +423,7 @@ export default function TeacherDashboard() {
                         </button>
                         <button
                           onClick={() => handleMarkAttendance(student.id, "absent")}
-                          className={`h-9 w-9 rounded-lg flex items-center justify-center transition-all ${
+                          className={`h-9 w-9 rounded-lg flex items-center justify-center transition-all cursor-pointer ${
                             student.status === "absent"
                               ? "bg-red-500 text-white"
                               : "bg-gray-100 text-gray-400 hover:bg-red-500/10 hover:text-red-500"
@@ -427,7 +444,7 @@ export default function TeacherDashboard() {
                     <button
                       onClick={handleSaveAttendance}
                       disabled={isSaving || markedCount !== students.length}
-                      className="w-full px-6 py-3 bg-gradient-to-r from-primary to-green-500 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                      className="w-full px-6 py-3 bg-gradient-to-r from-primary to-green-500 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
                     >
                       {isSaving ? (
                         <>
@@ -454,7 +471,7 @@ export default function TeacherDashboard() {
               {/* Add Student Button */}
               <button
                 onClick={() => setShowAddStudent(true)}
-                className="w-full bg-gradient-to-r from-primary to-green-500 text-white rounded-2xl p-4 font-semibold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all active:scale-[0.98]"
+                className="w-full bg-gradient-to-r from-primary to-green-500 text-white rounded-2xl p-4 font-semibold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all active:scale-[0.98] cursor-pointer"
               >
                 <FaUserPlus /> Add New Student
               </button>
@@ -490,7 +507,7 @@ export default function TeacherDashboard() {
         <div className="max-w-4xl mx-auto flex items-center justify-around">
           <button
             onClick={() => setActiveTab("overview")}
-            className={`flex flex-col items-center gap-1 px-4 py-2 rounded-xl transition-all ${
+            className={`flex flex-col items-center gap-1 px-4 py-2 rounded-xl transition-all cursor-pointer ${
               activeTab === "overview" ? "text-primary" : "text-gray-400"
             }`}
           >
@@ -499,7 +516,7 @@ export default function TeacherDashboard() {
           </button>
           <button
             onClick={() => setActiveTab("mark")}
-            className={`flex flex-col items-center gap-1 px-4 py-2 rounded-xl transition-all ${
+            className={`flex flex-col items-center gap-1 px-4 py-2 rounded-xl transition-all cursor-pointer ${
               activeTab === "mark" ? "text-primary" : "text-gray-400"
             }`}
           >
@@ -508,7 +525,7 @@ export default function TeacherDashboard() {
           </button>
           <button
             onClick={() => setActiveTab("students")}
-            className={`flex flex-col items-center gap-1 px-4 py-2 rounded-xl transition-all ${
+            className={`flex flex-col items-center gap-1 px-4 py-2 rounded-xl transition-all cursor-pointer ${
               activeTab === "students" ? "text-primary" : "text-gray-400"
             }`}
           >
@@ -534,7 +551,7 @@ export default function TeacherDashboard() {
               <h3 className="text-lg font-bold text-gray-800">Add New Student</h3>
               <button
                 onClick={() => !isAddingStudent && setShowAddStudent(false)}
-                className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
+                className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
                 disabled={isAddingStudent}
               >
                 <FaTimes />
@@ -596,7 +613,7 @@ export default function TeacherDashboard() {
                 <button
                   type="button"
                   onClick={() => setShowAddStudent(false)}
-                  className="flex-1 px-4 py-3 border border-gray-200 text-gray-600 rounded-xl font-medium hover:bg-gray-50 transition-colors"
+                  className="flex-1 px-4 py-3 border border-gray-200 text-gray-600 rounded-xl font-medium hover:bg-gray-50 transition-colors cursor-pointer"
                   disabled={isAddingStudent}
                 >
                   Cancel
@@ -604,7 +621,7 @@ export default function TeacherDashboard() {
                 <button
                   type="submit"
                   disabled={isAddingStudent || !newStudent.name || !newStudent.rollNo || !newStudent.admNo}
-                  className="flex-1 px-4 py-3 bg-gradient-to-r from-primary to-green-500 text-white rounded-xl font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="flex-1 px-4 py-3 bg-gradient-to-r from-primary to-green-500 text-white rounded-xl font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
                 >
                   {isAddingStudent ? (
                     <>
