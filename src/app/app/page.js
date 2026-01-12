@@ -41,18 +41,30 @@ export default function AppPage() {
     return () => window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
   }, []);
 
-  // Handle authenticated users
+  // Handle authenticated users and PWA mode
   useEffect(() => {
-    if (!isLoading && user && userType) {
-      // User is logged in, redirect to their dashboard
+    if (isPWA) {
+      // Running as installed PWA
+      if (!isLoading) {
+        if (user && userType) {
+          // User is logged in, redirect to their dashboard
+          if (userType === 'teacher') {
+            router.push("/app/dashboard/teacher");
+          } else if (userType === 'student') {
+            router.push("/app/dashboard/student");
+          }
+        } else {
+          // Not logged in, go to login
+          router.push("/app/login");
+        }
+      }
+    } else if (!isLoading && user && userType) {
+      // Not PWA but logged in, redirect to dashboard
       if (userType === 'teacher') {
         router.push("/app/dashboard/teacher");
       } else if (userType === 'student') {
         router.push("/app/dashboard/student");
       }
-    } else if (!isLoading && isPWA && !user) {
-      // PWA opened but not logged in, go to login
-      router.push("/app/login");
     }
   }, [isLoading, user, userType, isPWA, router]);
 
@@ -73,6 +85,15 @@ export default function AppPage() {
 
   // Show loading while checking
   if (isMobile === null || isLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-primary via-green-600 to-teal-600 flex items-center justify-center">
+        <div className="w-10 h-10 border-4 border-white/30 border-t-white rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  // If running as PWA, show loading (will redirect via useEffect)
+  if (isPWA) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-primary via-green-600 to-teal-600 flex items-center justify-center">
         <div className="w-10 h-10 border-4 border-white/30 border-t-white rounded-full animate-spin" />
