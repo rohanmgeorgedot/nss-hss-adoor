@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
-import { FaPhoneAlt, FaEnvelope, FaHome, FaInfoCircle, FaGraduationCap, FaTheaterMasks, FaUsers, FaImages, FaPhoneAlt as FaContact, FaChevronRight } from "react-icons/fa";
+import { FaPhoneAlt, FaEnvelope, FaHome, FaInfoCircle, FaGraduationCap, FaTheaterMasks, FaUsers, FaImages, FaPhoneAlt as FaContact, FaChevronRight, FaMobileAlt } from "react-icons/fa";
 
 const navItems = [
   { title: "Home", link: "/", icon: FaHome },
@@ -15,6 +15,7 @@ const navItems = [
   { title: "Staff", link: "/staff", icon: FaUsers },
   { title: "Gallery", link: "/gallery", icon: FaImages },
   { title: "Contact", link: "/contact", icon: FaContact },
+  { title: "Get App", link: "/app", icon: FaMobileAlt },
 ];
 
 export default function Navbar() {

@@ -1,9 +1,7 @@
 import "@styles/globals.css";
-import Navbar from "@widgets/Common/Navbar";
-import Footer from "@widgets/Common/Footer";
-import Bottombar from "@widgets/Common/Bottombar";
 import { Analytics } from "@vercel/analytics/react";
 import AOSProvider from "@components/AOSProvider";
+import LayoutWrapper from "@components/LayoutWrapper";
 
 export const metadata = {
   title: "NSS HSS Adoor - Learn with Culture, Succeed with Values",
@@ -54,10 +52,9 @@ export default function RootLayout({ children }) {
       </head>
       <body className="antialiased bg-white">
         <Analytics />
-        <Navbar />
-        <AOSProvider>{children}</AOSProvider>
-        <Footer />
-        <Bottombar />
+        <AOSProvider>
+          <LayoutWrapper>{children}</LayoutWrapper>
+        </AOSProvider>
       </body>
     </html>
   );

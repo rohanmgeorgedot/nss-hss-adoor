@@ -3,14 +3,14 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FaHome, FaInfoCircle, FaImages, FaPhoneAlt, FaGraduationCap } from "react-icons/fa";
+import { FaHome, FaInfoCircle, FaImages, FaPhoneAlt, FaMobileAlt } from "react-icons/fa";
 
 const bottomNavItems = [
   { icon: FaHome, title: "Home", link: "/" },
   { icon: FaInfoCircle, title: "About", link: "/about" },
-  { icon: FaGraduationCap, title: "Academics", link: "/academics" },
   { icon: FaImages, title: "Gallery", link: "/gallery" },
   { icon: FaPhoneAlt, title: "Contact", link: "/contact" },
+  { icon: FaMobileAlt, title: "App", link: "/app" },
 ];
 
 export default function Bottombar() {
