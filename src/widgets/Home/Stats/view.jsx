@@ -33,9 +33,9 @@ const stats = [
 const Stats = () => {
   return (
     <section className="relative w-full overflow-hidden">
-      {/* Background Image - bg-fixed disabled on mobile for better performance */}
+      {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center md:bg-fixed"
+        className="absolute inset-0 bg-cover bg-center bg-fixed"
         style={{ backgroundImage: `url('/images/gallery/9.webp')` }}
       />
       
