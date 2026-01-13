@@ -8,11 +8,11 @@ export const metadata = {
   openGraph: {
     title: "Contact Us | NSS HSS Adoor",
     description: "Reach out to NSS HSS Adoor for any inquiries or support. Our team is here to help with your academic needs.",
-    url: "https://nsshssadoor.in/contact", // Updated with your domain
-    site_name: "NSS HSS Adoor",
+    url: "https://nsshssadoor.in/contact",
+    siteName: "NSS HSS Adoor",
     images: [
       {
-        url: "https://nsshssadoor.in/images/contact-banner.jpg", // Replace with actual contact page image URL
+        url: "https://nsshssadoor.in/images/banner.webp",
         width: 1200,
         height: 630,
         alt: "Contact NSS HSS Adoor"
@@ -22,10 +22,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@nsshssadoor", // Replace with your actual Twitter handle
     title: "Contact Us | NSS HSS Adoor",
     description: "Contact NSS HSS Adoor for any questions, support, or information related to our programs.",
-    image: "https://nsshssadoor.in/images/contact-banner.jpg", // Replace with actual image URL
+    images: ["https://nsshssadoor.in/images/banner.webp"],
   },
   robots: {
     index: true,

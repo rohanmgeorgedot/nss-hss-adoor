@@ -8,11 +8,11 @@ export const metadata = {
   openGraph: {
     title: "Academics | NSS HSS Adoor",
     description: "Discover the academic programs and courses offered at NSS HSS Adoor, designed to nurture the intellectual and personal growth of students.",
-    url: "https://nsshssadoor.in/academics", // Updated with your domain
-    site_name: "NSS HSS Adoor",
+    url: "https://nsshssadoor.in/academics",
+    siteName: "NSS HSS Adoor",
     images: [
       {
-        url: "https://nsshssadoor.in/images/academics-banner.jpg", // Replace with an actual image URL on your server
+        url: "https://nsshssadoor.in/images/banner.webp",
         width: 1200,
         height: 630,
         alt: "Academics at NSS HSS Adoor"
@@ -22,10 +22,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@nsshssadoor", // Replace with your actual Twitter handle
     title: "Academics | NSS HSS Adoor",
     description: "Learn about the academic programs offered at NSS HSS Adoor, tailored to provide quality education.",
-    image: "https://nsshssadoor.in/images/academics-banner.jpg", // Replace with an actual image URL
+    images: ["https://nsshssadoor.in/images/banner.webp"],
   },
   robots: {
     index: true,

@@ -8,11 +8,11 @@ export const metadata = {
   openGraph: {
     title: "Staff Details | NSS HSS Adoor",
     description: "Get to know the talented staff members at NSS HSS Adoor, from academic instructors to administrative personnel.",
-    url: "https://nsshssadoor.in/staff", // Replace with your actual URL
-    site_name: "NSS HSS Adoor",
+    url: "https://nsshssadoor.in/staff",
+    siteName: "NSS HSS Adoor",
     images: [
       {
-        url: "https://nsshssadoor.in/images/staff-banner.jpg", // Replace with actual image URL
+        url: "https://nsshssadoor.in/images/banner.webp",
         width: 1200,
         height: 630,
         alt: "Staff Members at NSS HSS Adoor"
@@ -22,10 +22,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@nsshssadoor", // Replace with your actual Twitter handle
     title: "Staff Details | NSS HSS Adoor",
     description: "Explore the staff details at NSS HSS Adoor and learn about the team of dedicated professionals working to support student success.",
-    image: "https://nsshssadoor.in/images/staff-banner.jpg", // Replace with actual image URL
+    images: ["https://nsshssadoor.in/images/banner.webp"],
   },
   robots: {
     index: true,

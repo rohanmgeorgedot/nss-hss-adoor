@@ -8,11 +8,11 @@ export const metadata = {
   openGraph: {
     title: "Gallery | NSS HSS Adoor",
     description: "View the stunning gallery showcasing the best moments at NSS HSS Adoor. A visual representation of the school's academic, cultural, and sports activities.",
-    url: "https://nsshssadoor.in/gallery", // Replace with your actual URL
-    site_name: "NSS HSS Adoor",
+    url: "https://nsshssadoor.in/gallery",
+    siteName: "NSS HSS Adoor",
     images: [
       {
-        url: "https://nsshssadoor.in/images/gallery-banner.jpg", // Replace with actual gallery image URL
+        url: "https://nsshssadoor.in/images/banner.webp",
         width: 1200,
         height: 630,
         alt: "Gallery of NSS HSS Adoor"
@@ -22,10 +22,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@nsshssadoor", // Replace with your actual Twitter handle
     title: "Gallery | NSS HSS Adoor",
     description: "Check out the gallery of NSS HSS Adoor and relive the best moments from our events and activities.",
-    image: "https://nsshssadoor.in/images/gallery-banner.jpg", // Replace with actual image URL
+    images: ["https://nsshssadoor.in/images/banner.webp"],
   },
   robots: {
     index: true,
