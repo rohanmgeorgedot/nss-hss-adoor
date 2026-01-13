@@ -157,22 +157,14 @@ export default function Navbar() {
 
       {/* Full Screen Mobile & Tablet Menu */}
       <div
-        className={`fixed inset-0 z-50 lg:hidden ${
-          isOpen ? "visible" : "invisible pointer-events-none"
+        className={`fixed inset-0 z-50 lg:hidden transition-visibility duration-300 ${
+          isOpen ? "visible" : "invisible pointer-events-none delay-300"
         }`}
       >
-        {/* Background Overlay */}
+        {/* Menu Content - Full screen solid background */}
         <div 
-          className={`absolute inset-0 bg-gray-900 transition-opacity duration-300 ${
-            isOpen ? "opacity-100" : "opacity-0"
-          }`}
-          onClick={() => setIsOpen(false)}
-        />
-
-        {/* Menu Content */}
-        <div 
-          className={`relative z-10 flex h-full flex-col bg-gray-900 transition-transform duration-300 ease-out ${
-            isOpen ? "translate-x-0" : "-translate-x-full"
+          className={`flex h-full flex-col bg-gray-900 transition-all duration-300 ease-out ${
+            isOpen ? "opacity-100 translate-x-0" : "opacity-100 -translate-x-full"
           }`}
         >
           {/* Header */}
