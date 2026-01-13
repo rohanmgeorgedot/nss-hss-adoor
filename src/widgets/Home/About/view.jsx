@@ -40,13 +40,13 @@ const About = () => {
               </div>
 
               {/* Secondary Image - Floating */}
-              <div className="absolute -bottom-6 -right-4 z-20 hidden overflow-hidden rounded-xl border-4 border-white shadow-xl md:block md:rounded-2xl lg:-bottom-8 lg:-right-12">
+              <div className="absolute -bottom-4 -right-2 z-20 overflow-hidden rounded-lg border-2 border-white shadow-xl sm:-bottom-6 sm:-right-4 sm:rounded-xl sm:border-4 md:rounded-2xl lg:-bottom-8 lg:-right-12">
                 <Image
                   src="/images/about/2.webp"
                   alt="School activities"
                   width={200}
                   height={200}
-                  className="h-32 w-32 object-cover md:h-36 md:w-36 lg:h-48 lg:w-48"
+                  className="h-20 w-20 object-cover sm:h-28 sm:w-28 md:h-36 md:w-36 lg:h-48 lg:w-48"
                 />
               </div>
 

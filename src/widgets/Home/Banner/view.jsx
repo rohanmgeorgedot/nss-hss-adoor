@@ -147,39 +147,39 @@ const Banner = () => {
 
           {/* Right Content - Image Card */}
           <div 
-            className="relative hidden md:col-span-2 md:block lg:col-span-1"
-            data-aos="fade-left"
+            className="relative md:col-span-2 lg:col-span-1"
+            data-aos="fade-up"
             data-aos-delay="300"
           >
             <div className="relative">
               {/* Main Image Card */}
-              <div className="relative z-10 overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-2 shadow-2xl backdrop-blur-sm md:rounded-3xl lg:p-3">
+              <div className="relative z-10 overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-1.5 shadow-2xl backdrop-blur-sm sm:p-2 md:rounded-3xl lg:p-3">
                 <div className="overflow-hidden rounded-xl md:rounded-2xl">
                   <Image
                     src="/images/about/1.webp"
                     alt="NSS HSS Adoor Students"
                     width={500}
                     height={600}
-                    className="h-[320px] w-full object-cover md:h-[380px] lg:h-[450px]"
+                    className="h-[200px] w-full object-cover sm:h-[280px] md:h-[380px] lg:h-[450px]"
                   />
                 </div>
                 
                 {/* Overlay Info Card */}
-                <div className="absolute bottom-4 left-4 right-4 rounded-xl bg-white/95 p-3 shadow-xl backdrop-blur-sm md:bottom-6 md:left-6 md:right-6 md:p-4 lg:bottom-8 lg:left-8 lg:right-8 lg:rounded-2xl lg:p-5">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-500 md:text-xs">School Code</p>
-                      <p className="text-lg font-bold text-gray-900 md:text-xl lg:text-2xl">03030</p>
+                <div className="absolute bottom-2 left-2 right-2 rounded-lg bg-white/95 p-2 shadow-xl backdrop-blur-sm sm:bottom-4 sm:left-4 sm:right-4 sm:rounded-xl sm:p-3 md:bottom-6 md:left-6 md:right-6 md:p-4 lg:bottom-8 lg:left-8 lg:right-8 lg:rounded-2xl lg:p-5">
+                  <div className="flex items-center justify-between text-center">
+                    <div className="flex-1">
+                      <p className="text-[8px] font-semibold uppercase tracking-wider text-gray-500 sm:text-[10px] md:text-xs">Code</p>
+                      <p className="text-sm font-bold text-gray-900 sm:text-lg md:text-xl lg:text-2xl">03030</p>
                     </div>
-                    <div className="h-8 w-px bg-gray-200 md:h-10 lg:h-12" />
-                    <div>
-                      <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-500 md:text-xs">Since</p>
-                      <p className="text-lg font-bold text-gray-900 md:text-xl lg:text-2xl">1934</p>
+                    <div className="h-6 w-px bg-gray-200 sm:h-8 md:h-10 lg:h-12" />
+                    <div className="flex-1">
+                      <p className="text-[8px] font-semibold uppercase tracking-wider text-gray-500 sm:text-[10px] md:text-xs">Since</p>
+                      <p className="text-sm font-bold text-gray-900 sm:text-lg md:text-xl lg:text-2xl">1934</p>
                     </div>
-                    <div className="h-8 w-px bg-gray-200 md:h-10 lg:h-12" />
-                    <div>
-                      <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-500 md:text-xs">UDISE</p>
-                      <p className="text-sm font-bold text-gray-900 md:text-base lg:text-lg">32120100714</p>
+                    <div className="h-6 w-px bg-gray-200 sm:h-8 md:h-10 lg:h-12" />
+                    <div className="flex-1">
+                      <p className="text-[8px] font-semibold uppercase tracking-wider text-gray-500 sm:text-[10px] md:text-xs">UDISE</p>
+                      <p className="text-[10px] font-bold text-gray-900 sm:text-sm md:text-base lg:text-lg">32120100714</p>
                     </div>
                   </div>
                 </div>
