@@ -225,12 +225,6 @@ const Banner = () => {
         </svg>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-24 left-1/2 z-10 hidden -translate-x-1/2 animate-bounce md:block">
-        <div className="flex h-12 w-7 items-start justify-center rounded-full border-2 border-white/30 p-1.5">
-          <div className="h-2 w-1 rounded-full bg-white/60 animate-pulse" />
-        </div>
-      </div>
     </section>
   );
 };
