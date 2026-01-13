@@ -35,10 +35,10 @@ const Banner = () => {
 
       {/* Main Content */}
       <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-4 py-24 sm:px-5 md:px-8 lg:px-16 lg:py-20">
-        <div className="grid w-full gap-10 md:grid-cols-5 md:gap-8 lg:grid-cols-2 lg:gap-16 items-center">
+        <div className="grid w-full gap-6 sm:gap-8 md:grid-cols-5 md:gap-8 lg:grid-cols-2 lg:gap-16 items-center">
           
           {/* Left Content */}
-          <div className="text-center md:col-span-3 md:text-left lg:col-span-1">
+          <div className="text-center md:col-span-3 md:text-left lg:col-span-1 order-2 md:order-1">
             {/* Badge */}
             <div 
               className="mb-6 inline-flex items-center gap-3 rounded-full border border-primary/30 bg-primary/10 px-5 py-2.5 backdrop-blur-sm"
@@ -147,9 +147,9 @@ const Banner = () => {
 
           {/* Right Content - Image Card */}
           <div 
-            className="relative md:col-span-2 lg:col-span-1"
+            className="relative md:col-span-2 lg:col-span-1 order-1 md:order-2"
             data-aos="fade-up"
-            data-aos-delay="300"
+            data-aos-delay="100"
           >
             <div className="relative">
               {/* Main Image Card */}
