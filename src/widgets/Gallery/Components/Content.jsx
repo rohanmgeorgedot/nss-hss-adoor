@@ -65,7 +65,7 @@ const Gallery = () => {
           backgroundSize: '50px 50px'
         }} />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-8 lg:px-16">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
           <div className="text-center">
             {/* Badge */}
             <div 
@@ -115,7 +115,7 @@ const Gallery = () => {
 
       {/* Gallery Grid */}
       <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:gap-4">
             {galleryImages.map((image, index) => (
               <div
@@ -189,7 +189,7 @@ const Gallery = () => {
 
       {/* CTA Section */}
       <section className="bg-gray-50 py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-16 text-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16 text-center">
           <h2 className="mb-4 text-2xl font-bold text-font-primary md:text-3xl">
             Want to See More?
           </h2>

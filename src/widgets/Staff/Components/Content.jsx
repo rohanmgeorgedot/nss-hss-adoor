@@ -146,7 +146,7 @@ export default function Content() {
           backgroundSize: '50px 50px'
         }} />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-8 lg:px-16">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
           <div className="text-center">
             {/* Badge */}
             <div 
@@ -195,7 +195,7 @@ export default function Content() {
 
       {/* Introduction */}
       <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
           <div className="mx-auto max-w-3xl text-center" data-aos="fade-up">
             <p className="text-base leading-relaxed text-font-secondary md:text-lg">
               The teaching faculty of NSS HSS Adoor forms a tremendous task force comprising 
@@ -209,8 +209,8 @@ export default function Content() {
       </section>
 
       {/* Principal Section */}
-      <section className="bg-gradient-to-b from-gray-50 to-white py-16 md:py-20">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-16">
+      <section className="bg-gradient-to-b from-gray-50 to-white py-10 sm:py-12 md:py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
           <div className="mb-10 text-center" data-aos="fade-up">
             <div className="mb-4 inline-flex items-center justify-center gap-2">
               <span className="h-px w-8 bg-primary" />
@@ -250,7 +250,7 @@ export default function Content() {
                 </div>
                 
                 <div className="relative -mt-16 mx-4 mb-4 rounded-2xl bg-white p-6 text-center shadow-lg">
-                  <h3 className="mb-2 text-xl font-bold text-font-primary sm:text-2xl">{principal.name}</h3>
+                  <h3 className="mb-2 text-lg sm:text-xl font-bold text-font-primary sm:text-2xl">{principal.name}</h3>
                   <p className="text-primary font-medium">{principal.designation}</p>
                   <div className="mt-4 flex items-center justify-center gap-2 text-sm text-font-secondary">
                     <FaGraduationCap className="text-primary" />
@@ -265,8 +265,8 @@ export default function Content() {
 
       {/* Teaching Staff */}
       <section className="py-16 md:py-24 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-16">
-          <div className="mb-12 text-center" data-aos="fade-up">
+        <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
+          <div className="mb-8 sm:mb-10 md:mb-12 text-center" data-aos="fade-up">
             <div className="mb-4 inline-flex items-center justify-center gap-2">
               <span className="h-px w-8 bg-primary" />
               <span className="text-sm font-semibold uppercase tracking-wider text-primary">
@@ -321,43 +321,43 @@ export default function Content() {
 
       {/* Stats */}
       <section className="bg-gradient-to-r from-primary via-green-600 to-teal-600 py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
           <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
             <div className="text-center p-4 rounded-2xl bg-white/10 backdrop-blur-sm">
-              <FaUserTie className="mx-auto mb-3 text-3xl text-white md:text-4xl" />
+              <FaUserTie className="mx-auto mb-2 sm:mb-3 text-2xl sm:text-3xl text-white md:text-4xl" />
               <p className="text-2xl font-bold text-white md:text-4xl">{higherSecondaryStaff.length}</p>
-              <p className="text-xs text-white/80 mt-1 sm:text-sm">HS Staff</p>
+              <p className="text-[10px] sm:text-xs text-white/80 mt-0.5 sm:mt-1 sm:text-sm">HS Staff</p>
             </div>
             <div className="text-center p-4 rounded-2xl bg-white/10 backdrop-blur-sm">
-              <FaChalkboardTeacher className="mx-auto mb-3 text-3xl text-white md:text-4xl" />
+              <FaChalkboardTeacher className="mx-auto mb-2 sm:mb-3 text-2xl sm:text-3xl text-white md:text-4xl" />
               <p className="text-2xl font-bold text-white md:text-4xl">50+</p>
-              <p className="text-xs text-white/80 mt-1 sm:text-sm">Total Faculty</p>
+              <p className="text-[10px] sm:text-xs text-white/80 mt-0.5 sm:mt-1 sm:text-sm">Total Faculty</p>
             </div>
             <div className="text-center p-4 rounded-2xl bg-white/10 backdrop-blur-sm">
-              <FaGraduationCap className="mx-auto mb-3 text-3xl text-white md:text-4xl" />
+              <FaGraduationCap className="mx-auto mb-2 sm:mb-3 text-2xl sm:text-3xl text-white md:text-4xl" />
               <p className="text-2xl font-bold text-white md:text-4xl">15+</p>
-              <p className="text-xs text-white/80 mt-1 sm:text-sm">Senior Teachers</p>
+              <p className="text-[10px] sm:text-xs text-white/80 mt-0.5 sm:mt-1 sm:text-sm">Senior Teachers</p>
             </div>
             <div className="text-center p-4 rounded-2xl bg-white/10 backdrop-blur-sm">
-              <FaAward className="mx-auto mb-3 text-3xl text-white md:text-4xl" />
+              <FaAward className="mx-auto mb-2 sm:mb-3 text-2xl sm:text-3xl text-white md:text-4xl" />
               <p className="text-2xl font-bold text-white md:text-4xl">90+</p>
-              <p className="text-xs text-white/80 mt-1 sm:text-sm">Years Excellence</p>
+              <p className="text-[10px] sm:text-xs text-white/80 mt-0.5 sm:mt-1 sm:text-sm">Years Excellence</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-16 text-center">
-          <h2 className="mb-4 text-2xl font-bold text-font-primary md:text-3xl">
+      <section className="py-10 sm:py-12 md:py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-4 sm:px-5 md:px-8 lg:px-16 text-center">
+          <h2 className="mb-3 sm:mb-4 text-xl sm:text-2xl font-bold text-font-primary md:text-3xl">
             Want to Join Our Team?
           </h2>
-          <p className="mx-auto mb-8 max-w-2xl text-base text-font-secondary md:text-lg">
+          <p className="mx-auto mb-6 sm:mb-8 max-w-2xl text-sm sm:text-base text-font-secondary md:text-lg">
             We are always looking for passionate educators to join our family.
           </p>
           <a href="/contact">
-            <button className="cursor-pointer rounded-lg bg-primary px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-primary-700 md:text-base">
+            <button className="cursor-pointer rounded-lg bg-primary px-6 py-3 sm:px-8 sm:py-4 text-sm font-semibold text-white transition-all hover:bg-primary-700 md:text-base">
               Contact Us
             </button>
           </a>

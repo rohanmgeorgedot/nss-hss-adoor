@@ -95,7 +95,7 @@ export default function NonAcademics() {
           backgroundSize: '50px 50px'
         }} />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-8 lg:px-16">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
           <div className="text-center">
             {/* Badge */}
             <div 
@@ -104,7 +104,7 @@ export default function NonAcademics() {
             >
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75"></span>
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-white"></span>
+                <span className="relative inline-flex h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-white"></span>
               </span>
               <span className="text-sm font-semibold text-white">
                 🎭 Beyond The Classroom
@@ -144,9 +144,9 @@ export default function NonAcademics() {
 
       {/* Introduction */}
       <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
           <div className="text-center" data-aos="fade-up">
-            <p className="mx-auto max-w-3xl text-base leading-relaxed text-font-secondary md:text-lg">
+            <p className="mx-auto max-w-3xl text-sm sm:text-base leading-relaxed text-font-secondary md:text-lg">
               At NSS HSS Adoor, we believe in the holistic development of students. 
               Our diverse range of non-academic activities helps students discover their passions, 
               develop life skills, and grow into well-rounded individuals.
@@ -157,7 +157,7 @@ export default function NonAcademics() {
 
       {/* Activities Grid - Quick Overview */}
       <section className="bg-gray-50 py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7">
             {activities.map((activity) => (
               <button
@@ -178,12 +178,12 @@ export default function NonAcademics() {
       </section>
 
       {/* Active Activity Detail */}
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-16">
+      <section className="py-10 sm:py-12 md:py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
             {/* Content */}
             <div key={activeActivity.id} className="transition-opacity duration-300">
-              <div className="mb-4 inline-flex items-center gap-3">
+              <div className="mb-3 sm:mb-4 inline-flex items-center gap-2 sm:gap-3">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
                   <activeActivity.icon className="text-xl text-primary" />
                 </div>
@@ -198,14 +198,14 @@ export default function NonAcademics() {
 
               {/* Highlights */}
               <div className="mb-6">
-                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">
+                <h3 className="mb-3 text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary">
                   Key Highlights
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {activeActivity.highlights.map((highlight, index) => (
                     <span
                       key={index}
-                      className="rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary"
+                      className="rounded-full bg-primary/10 px-3 py-1.5 sm:px-4 sm:py-2 text-sm font-medium text-primary"
                     >
                       {highlight}
                     </span>
@@ -286,12 +286,12 @@ export default function NonAcademics() {
       </section>
 
       {/* All Activities Overview */}
-      <section className="bg-gray-50 py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-16">
+      <section className="bg-gray-50 py-10 sm:py-12 md:py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
           <div className="mb-12 text-center" data-aos="fade-up">
             <div className="mb-4 inline-flex items-center justify-center gap-2">
               <span className="h-px w-8 bg-primary" />
-              <span className="text-sm font-semibold uppercase tracking-wider text-primary">
+              <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-primary">
                 Our Programs
               </span>
               <span className="h-px w-8 bg-primary" />
@@ -305,12 +305,12 @@ export default function NonAcademics() {
             {activities.map((activity, index) => (
               <div
                 key={activity.id}
-                className="group overflow-hidden rounded-2xl bg-white shadow-sm transition-all hover:shadow-lg"
+                className="group overflow-hidden rounded-xl sm:rounded-2xl bg-white shadow-sm transition-all hover:shadow-lg"
                 data-aos="fade-up"
                 data-aos-delay={index * 50}
               >
                 {/* Image */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-36 sm:h-40 md:h-48 overflow-hidden">
                   <Image
                     src={activity.images[0]}
                     alt={activity.title}
@@ -347,7 +347,7 @@ export default function NonAcademics() {
 
       {/* CTA Section */}
       <section className="bg-primary py-16 md:py-20">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-16 text-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16 text-center">
           <h2 className="mb-4 text-2xl font-bold text-white md:text-3xl lg:text-4xl">
             Discover Your Passion
           </h2>

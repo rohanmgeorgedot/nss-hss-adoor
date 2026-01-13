@@ -27,39 +27,39 @@ const Team = () => {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
         {/* Section Header */}
-        <div className="mb-16 text-center" data-aos="fade-up">
-          <div className="mb-4 inline-flex items-center gap-3 rounded-full bg-primary/10 px-4 py-2">
-            <span className="h-2 w-2 rounded-full bg-primary" />
-            <span className="text-sm font-semibold uppercase tracking-wider text-primary">
+        <div className="mb-10 text-center sm:mb-12 md:mb-16" data-aos="fade-up">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 sm:mb-4 sm:gap-3 sm:px-4 sm:py-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary sm:h-2 sm:w-2" />
+            <span className="text-xs font-semibold uppercase tracking-wider text-primary sm:text-sm">
               Leadership
             </span>
           </div>
-          <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
+          <h2 className="mb-3 text-2xl font-bold text-gray-900 sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl">
             Messages from Our <span className="text-primary">Leaders</span>
           </h2>
-          <p className="mx-auto max-w-2xl text-base text-gray-600 md:text-lg">
+          <p className="mx-auto max-w-2xl text-sm text-gray-600 sm:text-base md:text-lg">
             Guidance and vision from our experienced leadership team.
           </p>
         </div>
 
         {/* Team Grid */}
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2 md:gap-8">
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-3xl bg-white p-6 shadow-lg transition-all hover:shadow-2xl md:p-8"
+              className="group relative overflow-hidden rounded-2xl bg-white p-5 shadow-lg transition-all hover:shadow-2xl md:rounded-3xl md:p-6 lg:p-8"
               data-aos="fade-up"
               data-aos-delay={index * 150}
             >
               {/* Decorative Background */}
-              <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-primary/5 transition-all group-hover:bg-primary/10" />
+              <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/5 transition-all group-hover:bg-primary/10 md:h-40 md:w-40" />
 
-              <div className="relative flex flex-col items-center gap-6 md:flex-row md:items-start">
+              <div className="relative flex flex-col items-center gap-4 md:flex-row md:items-start md:gap-5 lg:gap-6">
                 {/* Image */}
                 <div className="flex-shrink-0">
                   <div className="relative">
                     <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary to-orange-400 opacity-20 blur" />
-                    <div className="relative h-28 w-28 overflow-hidden rounded-full border-4 border-white shadow-xl sm:h-32 sm:w-32 md:h-36 md:w-36">
+                    <div className="relative h-24 w-24 overflow-hidden rounded-full border-4 border-white shadow-xl sm:h-28 sm:w-28 md:h-32 md:w-32 lg:h-36 lg:w-36">
                       {member.image ? (
                         <Image
                           src={member.image}
@@ -80,15 +80,15 @@ const Team = () => {
 
                 {/* Content */}
                 <div className="flex-1 text-center md:text-left">
-                  <FaQuoteLeft className="mx-auto mb-3 text-2xl text-primary/20 md:mx-0" />
-                  <p className="mb-4 text-sm leading-relaxed text-gray-600 md:text-base">
+                  <FaQuoteLeft className="mx-auto mb-2 text-xl text-primary/20 md:mx-0 md:mb-3 md:text-2xl" />
+                  <p className="mb-3 text-xs leading-relaxed text-gray-600 md:mb-4 md:text-sm lg:text-base">
                     "{member.message}"
                   </p>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900 md:text-xl">
+                    <h3 className="text-base font-bold text-gray-900 md:text-lg lg:text-xl">
                       {member.name}
                     </h3>
-                    <p className="text-sm font-medium text-primary">
+                    <p className="text-xs font-medium text-primary md:text-sm">
                       {member.position}
                     </p>
                   </div>

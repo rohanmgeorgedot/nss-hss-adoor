@@ -138,7 +138,7 @@ export default function Navbar() {
                 </Link>
               </div>
 
-              {/* Mobile Menu Button */}
+              {/* Mobile & Tablet Menu Button */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className={`rounded-xl p-2.5 lg:hidden transition-all ${
@@ -155,63 +155,54 @@ export default function Navbar() {
         </nav>
       </header>
 
-      {/* Full Screen Mobile Menu */}
+      {/* Full Screen Mobile & Tablet Menu */}
       <div
-        className={`fixed inset-0 z-50 lg:hidden transition-all duration-500 ${
-          isOpen ? "visible" : "invisible"
+        className={`fixed inset-0 z-50 lg:hidden ${
+          isOpen ? "visible" : "invisible pointer-events-none"
         }`}
       >
-        {/* Background Overlay with Gradient */}
+        {/* Background Overlay */}
         <div 
-          className={`absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-900 to-primary/20 transition-opacity duration-500 ${
+          className={`absolute inset-0 bg-gray-900 transition-opacity duration-300 ${
             isOpen ? "opacity-100" : "opacity-0"
           }`}
           onClick={() => setIsOpen(false)}
         />
-        
-        {/* Animated Background Elements */}
-        <div className={`absolute inset-0 overflow-hidden transition-opacity duration-700 ${isOpen ? "opacity-100" : "opacity-0"}`}>
-          <div className="absolute -left-20 top-1/4 h-64 w-64 rounded-full bg-primary/20 blur-3xl animate-pulse" />
-          <div className="absolute -right-20 bottom-1/3 h-80 w-80 rounded-full bg-orange-500/10 blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        </div>
 
         {/* Menu Content */}
         <div 
-          className={`relative z-10 flex h-full flex-col transition-all duration-500 ${
-            isOpen ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
+          className={`relative z-10 flex h-full flex-col bg-gray-900 transition-transform duration-300 ease-out ${
+            isOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
           {/* Header */}
-          <div className="flex items-center justify-between p-5 pt-6">
+          <div className="flex items-center justify-between p-4 border-b border-white/10">
             <div className="flex items-center gap-3">
-              <div className="relative">
-                <div className="absolute -inset-1 rounded-full bg-primary/30 blur" />
-                <Image
-                  src="/images/logo.webp"
-                  alt="NSS HSS Adoor"
-                  width={48}
-                  height={48}
-                  className="relative h-12 w-12 rounded-full object-cover ring-2 ring-white/20"
-                />
-              </div>
+              <Image
+                src="/images/logo.webp"
+                alt="NSS HSS Adoor"
+                width={44}
+                height={44}
+                className="h-11 w-11 rounded-full object-cover"
+              />
               <div>
-                <p className="text-lg font-bold text-white">NSS HSS Adoor</p>
-                <p className="text-xs text-gray-400">Est. 1934 | School Code: 03030</p>
+                <p className="text-base font-bold text-white">NSS HSS Adoor</p>
+                <p className="text-xs text-gray-400">Est. 1934</p>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-sm transition-all active:scale-95 hover:bg-white/20"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white active:bg-white/20"
               aria-label="Close menu"
             >
-              <HiX className="h-6 w-6" />
+              <HiX className="h-5 w-5" />
             </button>
           </div>
 
           {/* Nav Items */}
-          <div className="flex-1 overflow-y-auto px-5 py-6">
-            <nav className="space-y-2">
-              {navItems.map((item, index) => {
+          <div className="flex-1 overflow-y-auto py-4">
+            <nav className="space-y-1 px-3">
+              {navItems.map((item) => {
                 const isActive = pathname === item.link;
                 const Icon = item.icon;
                 return (
@@ -219,28 +210,15 @@ export default function Navbar() {
                     key={item.title}
                     href={item.link}
                     onClick={() => setIsOpen(false)}
-                    className={`group flex items-center gap-4 rounded-2xl px-4 py-4 transition-all duration-300 active:scale-[0.98] ${
+                    className={`flex items-center gap-3 rounded-xl px-4 py-3.5 active:scale-[0.98] ${
                       isActive
-                        ? "bg-primary text-white shadow-lg shadow-primary/30"
-                        : "text-gray-300 hover:bg-white/10 active:bg-white/5"
+                        ? "bg-primary text-white"
+                        : "text-gray-300 active:bg-white/10"
                     }`}
-                    style={{ 
-                      transitionDelay: isOpen ? `${index * 50}ms` : '0ms',
-                      transform: isOpen ? 'translateX(0)' : 'translateX(-20px)',
-                      opacity: isOpen ? 1 : 0
-                    }}
                   >
-                    <div className={`flex h-11 w-11 items-center justify-center rounded-xl transition-all ${
-                      isActive 
-                        ? "bg-white/20" 
-                        : "bg-white/5 group-hover:bg-white/10"
-                    }`}>
-                      <Icon className={`text-lg ${isActive ? "text-white" : "text-primary"}`} />
-                    </div>
-                    <span className="flex-1 text-base font-semibold">{item.title}</span>
-                    <FaChevronRight className={`text-sm transition-transform ${
-                      isActive ? "text-white/70" : "text-gray-500 group-hover:translate-x-1"
-                    }`} />
+                    <Icon className={`text-lg ${isActive ? "text-white" : "text-primary"}`} />
+                    <span className="flex-1 text-sm font-semibold">{item.title}</span>
+                    <FaChevronRight className={`text-xs ${isActive ? "text-white/70" : "text-gray-500"}`} />
                   </Link>
                 );
               })}
@@ -248,38 +226,28 @@ export default function Navbar() {
           </div>
 
           {/* Footer */}
-          <div className="border-t border-white/10 p-5 pb-8">
-            {/* Contact Info */}
-            <div className="mb-4 grid grid-cols-2 gap-2">
+          <div className="border-t border-white/10 p-4 space-y-3">
+            {/* Contact Row */}
+            <div className="flex gap-2">
               <a 
                 href="tel:+918281821908" 
-                className="flex items-center gap-2 rounded-xl bg-white/5 p-2.5 text-gray-300 transition-all active:scale-[0.98] hover:bg-white/10"
+                className="flex-1 flex items-center justify-center gap-2 rounded-lg bg-white/5 p-2.5 text-white active:bg-white/10"
               >
-                <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-green-500/20">
-                  <FaPhoneAlt className="text-sm text-green-400" />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-[10px] text-gray-500">Call Us</p>
-                  <p className="text-xs font-medium text-white">82818 21908</p>
-                </div>
+                <FaPhoneAlt className="text-sm text-green-400" />
+                <span className="text-xs font-medium">Call</span>
               </a>
               <a 
                 href="mailto:nsshssadoor@gmail.com" 
-                className="flex items-center gap-2 rounded-xl bg-white/5 p-2.5 text-gray-300 transition-all active:scale-[0.98] hover:bg-white/10"
+                className="flex-1 flex items-center justify-center gap-2 rounded-lg bg-white/5 p-2.5 text-white active:bg-white/10"
               >
-                <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-blue-500/20">
-                  <FaEnvelope className="text-sm text-blue-400" />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-[10px] text-gray-500">Email Us</p>
-                  <p className="text-xs font-medium text-white truncate">nsshssadoor</p>
-                </div>
+                <FaEnvelope className="text-sm text-blue-400" />
+                <span className="text-xs font-medium">Email</span>
               </a>
             </div>
             
             {/* CTA Button */}
-            <Link href="/contact" onClick={() => setIsOpen(false)}>
-              <button className="w-full cursor-pointer rounded-xl bg-gradient-to-r from-primary to-green-500 py-3.5 text-sm font-bold text-white shadow-lg shadow-primary/30 transition-all active:scale-[0.98] hover:shadow-primary/50">
+            <Link href="/contact" onClick={() => setIsOpen(false)} className="block">
+              <button className="w-full cursor-pointer rounded-xl bg-primary py-3 text-sm font-bold text-white active:bg-primary-600">
                 Enquire Now
               </button>
             </Link>
@@ -288,7 +256,7 @@ export default function Navbar() {
       </div>
 
       {/* Spacer for fixed navbar */}
-      <div className={`${isHomePage ? '' : 'h-16 md:h-18 lg:h-[calc(40px+80px)]'}`} />
+      <div className={`${isHomePage ? '' : 'h-16 md:h-18 lg:h-[calc(36px+80px)]'}`} />
     </>
   );
 }

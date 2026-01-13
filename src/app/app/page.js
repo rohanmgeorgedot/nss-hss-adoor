@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { FaDownload, FaMobileAlt, FaCheckCircle, FaArrowRight, FaPlusSquare } from "react-icons/fa";
+import Link from "next/link";
+import { FaDownload, FaMobileAlt, FaCheckCircle, FaArrowLeft, FaPlusSquare } from "react-icons/fa";
 import { IoShareOutline } from "react-icons/io5";
 import { useAuth } from "./layout";
 
@@ -159,6 +160,15 @@ export default function AppPage() {
           >
             Got it!
           </button>
+
+          {/* Back to Website */}
+          <Link 
+            href="/" 
+            className="w-full mt-4 text-gray-400 text-sm py-2 hover:text-gray-600 transition-colors flex items-center justify-center gap-2"
+          >
+            <FaArrowLeft className="text-xs" />
+            Back to Website
+          </Link>
         </div>
       </div>
     );
@@ -207,20 +217,21 @@ export default function AppPage() {
           {isIOS ? "How to Install" : "Install App"}
         </button>
 
-        {/* Continue to Login */}
-        <button
-          onClick={() => router.push("/app/login")}
-          className="w-full mt-3 text-gray-500 text-sm py-2 hover:text-gray-700 transition-colors flex items-center justify-center gap-1 cursor-pointer"
-        >
-          Continue to login <FaArrowRight className="text-xs" />
-        </button>
-
         {/* Info */}
         <p className="text-center text-xs text-gray-400 mt-4">
           {isIOS 
             ? "Opens instructions for Safari" 
             : "Installs directly to your home screen"}
         </p>
+
+        {/* Back to Website */}
+        <Link 
+          href="/" 
+          className="w-full mt-4 pt-4 border-t border-gray-100 text-gray-400 text-sm py-2 hover:text-gray-600 transition-colors flex items-center justify-center gap-2"
+        >
+          <FaArrowLeft className="text-xs" />
+          Back to Website
+        </Link>
       </div>
     </div>
   );

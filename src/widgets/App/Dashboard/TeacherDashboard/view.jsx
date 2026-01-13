@@ -231,42 +231,42 @@ export default function TeacherDashboard() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Top Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 px-4 py-3">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 px-4 md:px-6 py-3 md:py-4">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 md:gap-4">
             <Image
               src="/images/logo.webp"
               alt="NSS HSS Adoor"
-              width={36}
-              height={36}
-              className="rounded-full"
+              width={48}
+              height={48}
+              className="rounded-full w-9 h-9 md:w-12 md:h-12"
             />
             <div>
-              <span className="font-semibold text-gray-800 text-sm">Teacher Dashboard</span>
-              <p className="text-xs text-gray-500">{teacherData.assignedClass.name}</p>
+              <span className="font-semibold text-gray-800 text-sm md:text-base">Teacher Dashboard</span>
+              <p className="text-xs md:text-xs sm:text-sm text-gray-500">{teacherData.assignedClass.name}</p>
             </div>
           </div>
           <button
             onClick={handleLogout}
-            className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
+            className="p-2 md:p-3 text-red-500 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
             title="Logout"
           >
-            <FaSignOutAlt />
+            <FaSignOutAlt className="text-base md:text-lg" />
           </button>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="pt-16 pb-20 min-h-screen">
+      <main className="pt-16 md:pt-20 pb-20 md:pb-24 min-h-screen">
         <div className="p-4 md:p-6 lg:p-8">
           {/* Header */}
-          <div className="mb-6 max-w-4xl mx-auto">
-            <h1 className="text-xl font-bold text-gray-800">
+          <div className="mb-6 md:mb-8 max-w-4xl mx-auto">
+            <h1 className="text-xl md:text-xl sm:text-2xl font-bold text-gray-800">
               {activeTab === "overview" && "Dashboard Overview"}
               {activeTab === "mark" && "Mark Attendance"}
               {activeTab === "students" && "My Students"}
             </h1>
-            <p className="text-sm text-gray-500 mt-1">
+            <p className="text-sm md:text-base text-gray-500 mt-1">
               {teacherData.name} • {teacherData.designation}
             </p>
           </div>
@@ -283,43 +283,43 @@ export default function TeacherDashboard() {
           {activeTab === "overview" && (
             <div className="space-y-6 max-w-4xl mx-auto">
               {/* Class Info Card */}
-              <div className="bg-gradient-to-r from-primary to-green-500 rounded-2xl p-6 text-white">
+              <div className="bg-gradient-to-r from-primary to-green-500 rounded-2xl p-5 md:p-8 text-white">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-white/80 mb-1">Your Class</p>
-                    <h3 className="text-2xl font-bold">{teacherData.assignedClass.name}</h3>
-                    <p className="text-sm text-white/80 mt-1">{teacherData.assignedClass.students} Students</p>
+                    <p className="text-sm md:text-base text-white/80 mb-1">Your Class</p>
+                    <h3 className="text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold">{teacherData.assignedClass.name}</h3>
+                    <p className="text-sm md:text-base text-white/80 mt-1">{teacherData.assignedClass.students} Students</p>
                   </div>
-                  <div className="h-16 w-16 bg-white/20 rounded-2xl flex items-center justify-center">
-                    <FaUsers className="text-3xl text-white" />
+                  <div className="h-14 w-14 md:h-20 md:w-20 bg-white/20 rounded-2xl flex items-center justify-center">
+                    <FaUsers className="text-2xl md:text-4xl text-white" />
                   </div>
                 </div>
               </div>
 
               {/* Stats Cards */}
-              <div className="grid grid-cols-3 gap-4">
-                <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 text-center">
-                  <div className="h-10 w-10 rounded-xl bg-blue-500/10 flex items-center justify-center mx-auto mb-3">
-                    <FaUsers className="text-blue-500" />
+              <div className="grid grid-cols-3 gap-3 md:gap-5">
+                <div className="bg-white rounded-2xl p-4 md:p-6 shadow-sm border border-gray-100 text-center">
+                  <div className="h-10 w-10 md:h-12 md:w-12 rounded-xl bg-blue-500/10 flex items-center justify-center mx-auto mb-2 md:mb-3">
+                    <FaUsers className="text-blue-500 text-base md:text-xl" />
                   </div>
-                  <p className="text-2xl font-bold text-gray-800">{teacherData.assignedClass.students}</p>
-                  <p className="text-xs text-gray-500 mt-1">Total Students</p>
+                  <p className="text-xl md:text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">{teacherData.assignedClass.students}</p>
+                  <p className="text-xs md:text-xs sm:text-sm text-gray-500 mt-1">Total Students</p>
                 </div>
 
-                <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 text-center">
-                  <div className="h-10 w-10 rounded-xl bg-green-500/10 flex items-center justify-center mx-auto mb-3">
-                    <FaCheckCircle className="text-green-500" />
+                <div className="bg-white rounded-2xl p-4 md:p-6 shadow-sm border border-gray-100 text-center">
+                  <div className="h-10 w-10 md:h-12 md:w-12 rounded-xl bg-green-500/10 flex items-center justify-center mx-auto mb-2 md:mb-3">
+                    <FaCheckCircle className="text-green-500 text-base md:text-xl" />
                   </div>
-                  <p className="text-2xl font-bold text-green-600">{presentCount}</p>
-                  <p className="text-xs text-gray-500 mt-1">Present Today</p>
+                  <p className="text-xl md:text-xl sm:text-2xl md:text-3xl font-bold text-green-600">{presentCount}</p>
+                  <p className="text-xs md:text-xs sm:text-sm text-gray-500 mt-1">Present Today</p>
                 </div>
 
-                <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 text-center">
-                  <div className="h-10 w-10 rounded-xl bg-red-500/10 flex items-center justify-center mx-auto mb-3">
-                    <FaTimesCircle className="text-red-500" />
+                <div className="bg-white rounded-2xl p-4 md:p-6 shadow-sm border border-gray-100 text-center">
+                  <div className="h-10 w-10 md:h-12 md:w-12 rounded-xl bg-red-500/10 flex items-center justify-center mx-auto mb-2 md:mb-3">
+                    <FaTimesCircle className="text-red-500 text-base md:text-xl" />
                   </div>
-                  <p className="text-2xl font-bold text-red-600">{absentCount}</p>
-                  <p className="text-xs text-gray-500 mt-1">Absent Today</p>
+                  <p className="text-xl md:text-xl sm:text-2xl md:text-3xl font-bold text-red-600">{absentCount}</p>
+                  <p className="text-xs md:text-xs sm:text-sm text-gray-500 mt-1">Absent Today</p>
                 </div>
               </div>
 
@@ -329,13 +329,13 @@ export default function TeacherDashboard() {
                 className="w-full bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-left hover:border-primary hover:shadow-md transition-all group cursor-pointer"
               >
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
                     <div className="h-12 w-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
                       <FaUserCheck className="text-xl text-primary group-hover:text-white" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-800">Mark Attendance</h3>
-                      <p className="text-sm text-gray-500">Take today's attendance for your class</p>
+                      <p className="text-xs sm:text-sm text-gray-500">Take today's attendance for your class</p>
                     </div>
                   </div>
                   <FaChevronRight className="text-gray-400 group-hover:text-primary transition-colors" />
@@ -346,7 +346,7 @@ export default function TeacherDashboard() {
 
           {/* Mark Attendance Tab */}
           {activeTab === "mark" && (
-            <div className="space-y-4 max-w-4xl mx-auto">
+            <div className="space-y-3 sm:space-y-4 max-w-4xl mx-auto">
               {/* Controls */}
               <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
                 <div className="flex flex-col sm:flex-row gap-3 justify-between">
@@ -467,7 +467,7 @@ export default function TeacherDashboard() {
 
           {/* Students Tab */}
           {activeTab === "students" && (
-            <div className="space-y-4 max-w-4xl mx-auto">
+            <div className="space-y-3 sm:space-y-4 max-w-4xl mx-auto">
               {/* Add Student Button */}
               <button
                 onClick={() => setShowAddStudent(true)}
@@ -480,7 +480,7 @@ export default function TeacherDashboard() {
                 <div className="p-4 border-b border-gray-100 flex items-center justify-between">
                   <div>
                     <h3 className="font-semibold text-gray-800">Class {teacherData.assignedClass.name}</h3>
-                    <p className="text-sm text-gray-500">{students.length} Students</p>
+                    <p className="text-xs sm:text-sm text-gray-500">{students.length} Students</p>
                   </div>
                 </div>
                 <div className="divide-y divide-gray-100">
@@ -503,40 +503,40 @@ export default function TeacherDashboard() {
       </main>
 
       {/* Bottom Navigation Bar */}
-      <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 px-4 py-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]">
+      <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 px-4 md:px-6 py-2 md:py-3 pb-[max(0.5rem,env(safe-area-inset-bottom))]">
         <div className="max-w-4xl mx-auto flex items-center justify-around">
           <button
             onClick={() => setActiveTab("overview")}
-            className={`flex flex-col items-center gap-1 px-5 py-2 rounded-xl transition-all cursor-pointer ${
+            className={`flex flex-col items-center gap-1 px-5 md:px-8 py-2 md:py-3 rounded-xl transition-all cursor-pointer ${
               activeTab === "overview" 
                 ? "text-primary bg-primary/10" 
                 : "text-gray-400 hover:text-primary hover:bg-gray-100 active:scale-95"
             }`}
           >
-            <FaHome className="text-lg" />
-            <span className="text-xs font-medium">Overview</span>
+            <FaHome className="text-lg md:text-xl" />
+            <span className="text-xs md:text-sm font-medium">Overview</span>
           </button>
           <button
             onClick={() => setActiveTab("mark")}
-            className={`flex flex-col items-center gap-1 px-5 py-2 rounded-xl transition-all cursor-pointer ${
+            className={`flex flex-col items-center gap-1 px-5 md:px-8 py-2 md:py-3 rounded-xl transition-all cursor-pointer ${
               activeTab === "mark" 
                 ? "text-primary bg-primary/10" 
                 : "text-gray-400 hover:text-primary hover:bg-gray-100 active:scale-95"
             }`}
           >
-            <FaUserCheck className="text-lg" />
-            <span className="text-xs font-medium">Attendance</span>
+            <FaUserCheck className="text-lg md:text-xl" />
+            <span className="text-xs md:text-sm font-medium">Attendance</span>
           </button>
           <button
             onClick={() => setActiveTab("students")}
-            className={`flex flex-col items-center gap-1 px-5 py-2 rounded-xl transition-all cursor-pointer ${
+            className={`flex flex-col items-center gap-1 px-5 md:px-8 py-2 md:py-3 rounded-xl transition-all cursor-pointer ${
               activeTab === "students" 
                 ? "text-primary bg-primary/10" 
                 : "text-gray-400 hover:text-primary hover:bg-gray-100 active:scale-95"
             }`}
           >
-            <FaUsers className="text-lg" />
-            <span className="text-xs font-medium">Students</span>
+            <FaUsers className="text-lg md:text-xl" />
+            <span className="text-xs md:text-sm font-medium">Students</span>
           </button>
         </div>
       </nav>
@@ -565,7 +565,7 @@ export default function TeacherDashboard() {
             </div>
 
             {/* Form */}
-            <form onSubmit={handleAddStudent} className="p-4 space-y-4">
+            <form onSubmit={handleAddStudent} className="p-4 space-y-3 sm:space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Student Name *

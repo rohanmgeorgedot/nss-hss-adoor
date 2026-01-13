@@ -1,7 +1,9 @@
 import "@styles/globals.css";
+import { Suspense } from "react";
 import { Analytics } from "@vercel/analytics/react";
 import AOSProvider from "@components/AOSProvider";
 import LayoutWrapper from "@components/LayoutWrapper";
+import PageProgress from "@components/PageProgress";
 
 export const metadata = {
   title: "NSS HSS Adoor - Learn with Culture, Succeed with Values",
@@ -52,6 +54,9 @@ export default function RootLayout({ children }) {
       </head>
       <body className="antialiased bg-white">
         <Analytics />
+        <Suspense fallback={null}>
+          <PageProgress />
+        </Suspense>
         <AOSProvider>
           <LayoutWrapper>{children}</LayoutWrapper>
         </AOSProvider>

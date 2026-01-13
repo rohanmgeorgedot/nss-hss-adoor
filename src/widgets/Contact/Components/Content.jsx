@@ -80,7 +80,7 @@ Sent from NSS HSS Adoor Website Contact Form
           backgroundSize: '50px 50px'
         }} />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-8 lg:px-16">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
           <div className="text-center">
             {/* Badge */}
             <div 
@@ -129,39 +129,39 @@ Sent from NSS HSS Adoor Website Contact Form
 
       {/* Contact Info Cards */}
       <section className="py-12 md:py-16 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {/* Address */}
-            <div className="rounded-2xl bg-white p-6 shadow-sm text-center" data-aos="fade-up">
+            <div className="rounded-xl sm:rounded-2xl bg-white p-4 sm:p-5 md:p-6 shadow-sm text-center" data-aos="fade-up">
               <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
                 <FaMapMarkerAlt className="text-xl text-primary" />
               </div>
               <h3 className="mb-2 font-semibold text-font-primary">Address</h3>
-              <p className="text-sm text-font-secondary">
+              <p className="text-xs sm:text-sm text-font-secondary">
                 Vadakadathucavu P.O, Ezhamkulam<br />
                 Adoor, Kerala - 691529
               </p>
             </div>
 
             {/* Phone */}
-            <div className="rounded-2xl bg-white p-6 shadow-sm text-center" data-aos="fade-up" data-aos-delay="100">
+            <div className="rounded-xl sm:rounded-2xl bg-white p-4 sm:p-5 md:p-6 shadow-sm text-center" data-aos="fade-up" data-aos-delay="100">
               <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
                 <FaPhone className="text-xl text-primary" />
               </div>
               <h3 className="mb-2 font-semibold text-font-primary">Phone</h3>
-              <p className="text-sm text-font-secondary">
+              <p className="text-xs sm:text-sm text-font-secondary">
                 <Link href="tel:+918281821908" className="hover:text-primary">+91 82818 21908</Link><br />
                 <Link href="tel:+914734220908" className="hover:text-primary">04734 220908</Link>
               </p>
             </div>
 
             {/* Email */}
-            <div className="rounded-2xl bg-white p-6 shadow-sm text-center" data-aos="fade-up" data-aos-delay="200">
+            <div className="rounded-xl sm:rounded-2xl bg-white p-4 sm:p-5 md:p-6 shadow-sm text-center" data-aos="fade-up" data-aos-delay="200">
               <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
                 <FaEnvelope className="text-xl text-primary" />
               </div>
               <h3 className="mb-2 font-semibold text-font-primary">Email</h3>
-              <p className="text-sm text-font-secondary">
+              <p className="text-xs sm:text-sm text-font-secondary">
                 <Link href="mailto:nsshssadoor@gmail.com" className="hover:text-primary">
                   nsshssadoor@gmail.com
                 </Link>
@@ -169,12 +169,12 @@ Sent from NSS HSS Adoor Website Contact Form
             </div>
 
             {/* Working Hours */}
-            <div className="rounded-2xl bg-white p-6 shadow-sm text-center" data-aos="fade-up" data-aos-delay="300">
+            <div className="rounded-xl sm:rounded-2xl bg-white p-4 sm:p-5 md:p-6 shadow-sm text-center" data-aos="fade-up" data-aos-delay="300">
               <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
                 <FaClock className="text-xl text-primary" />
               </div>
               <h3 className="mb-2 font-semibold text-font-primary">Office Hours</h3>
-              <p className="text-sm text-font-secondary">
+              <p className="text-xs sm:text-sm text-font-secondary">
                 Mon - Fri: 9:00 AM - 5:00 PM
               </p>
             </div>
@@ -184,7 +184,7 @@ Sent from NSS HSS Adoor Website Contact Form
 
       {/* Map and Form Section */}
       <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
             {/* Map */}
             <div data-aos="fade-right">
@@ -349,7 +349,7 @@ Sent from NSS HSS Adoor Website Contact Form
 
       {/* School Info */}
       <section className="bg-primary py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
           <div className="grid gap-8 text-center md:grid-cols-3">
             <div data-aos="fade-up">
               <h3 className="mb-2 text-lg font-bold text-white">School Code</h3>

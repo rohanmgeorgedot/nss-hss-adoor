@@ -129,41 +129,41 @@ export default function StudentDashboard() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Top Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 px-4 py-3">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 px-4 md:px-6 py-3 md:py-4">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 md:gap-4">
             <Image
               src="/images/logo.webp"
               alt="NSS HSS Adoor"
-              width={36}
-              height={36}
-              className="rounded-full"
+              width={48}
+              height={48}
+              className="rounded-full w-9 h-9 md:w-12 md:h-12"
             />
             <div>
-              <span className="font-semibold text-gray-800 text-sm">Student Dashboard</span>
-              <p className="text-xs text-gray-500">{studentData.name}</p>
+              <span className="font-semibold text-gray-800 text-sm md:text-base">Student Dashboard</span>
+              <p className="text-xs md:text-xs sm:text-sm text-gray-500">{studentData.name}</p>
             </div>
           </div>
           <button
             onClick={handleLogout}
-            className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
+            className="p-2 md:p-3 text-red-500 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
             title="Logout"
           >
-            <FaSignOutAlt />
+            <FaSignOutAlt className="text-base md:text-lg" />
           </button>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="pt-16 pb-20 min-h-screen">
+      <main className="pt-16 md:pt-20 pb-20 md:pb-24 min-h-screen">
         <div className="p-4 md:p-6 lg:p-8">
           {/* Header */}
-          <div className="mb-6 max-w-4xl mx-auto">
-            <h1 className="text-xl font-bold text-gray-800">
+          <div className="mb-6 md:mb-8 max-w-4xl mx-auto">
+            <h1 className="text-xl md:text-xl sm:text-2xl font-bold text-gray-800">
               {activeTab === "overview" && "Dashboard Overview"}
               {activeTab === "attendance" && "Attendance History"}
             </h1>
-            <p className="text-sm text-gray-500 mt-1">
+            <p className="text-sm md:text-base text-gray-500 mt-1">
               {studentData.class} • Roll No: {studentData.rollNo}
             </p>
           </div>
@@ -172,49 +172,49 @@ export default function StudentDashboard() {
           {activeTab === "overview" && (
             <div className="space-y-6 max-w-4xl mx-auto">
               {/* Stats Cards */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="h-10 w-10 rounded-xl bg-blue-500/10 flex items-center justify-center">
-                      <FaCalendarAlt className="text-blue-500" />
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
+                <div className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-gray-100">
+                  <div className="flex items-center justify-between mb-2 md:mb-3">
+                    <div className="h-9 w-9 md:h-11 md:w-11 rounded-xl bg-blue-500/10 flex items-center justify-center">
+                      <FaCalendarAlt className="text-blue-500 text-sm md:text-base" />
                     </div>
-                    <span className="text-xs text-gray-400">Total</span>
+                    <span className="text-[10px] md:text-xs text-gray-400">Total</span>
                   </div>
-                  <p className="text-2xl font-bold text-gray-800">{attendanceStats.totalDays}</p>
-                  <p className="text-xs text-gray-500 mt-1">Working Days</p>
+                  <p className="text-xl md:text-xl sm:text-2xl font-bold text-gray-800">{attendanceStats.totalDays}</p>
+                  <p className="text-[10px] md:text-xs text-gray-500 mt-1">Working Days</p>
                 </div>
 
-                <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="h-10 w-10 rounded-xl bg-green-500/10 flex items-center justify-center">
-                      <FaCheckCircle className="text-green-500" />
+                <div className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-gray-100">
+                  <div className="flex items-center justify-between mb-2 md:mb-3">
+                    <div className="h-9 w-9 md:h-11 md:w-11 rounded-xl bg-green-500/10 flex items-center justify-center">
+                      <FaCheckCircle className="text-green-500 text-sm md:text-base" />
                     </div>
-                    <span className="text-xs text-gray-400">Present</span>
+                    <span className="text-[10px] md:text-xs text-gray-400">Present</span>
                   </div>
-                  <p className="text-2xl font-bold text-green-600">{attendanceStats.present}</p>
-                  <p className="text-xs text-gray-500 mt-1">Days Present</p>
+                  <p className="text-xl md:text-xl sm:text-2xl font-bold text-green-600">{attendanceStats.present}</p>
+                  <p className="text-[10px] md:text-xs text-gray-500 mt-1">Days Present</p>
                 </div>
 
-                <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="h-10 w-10 rounded-xl bg-red-500/10 flex items-center justify-center">
-                      <FaTimesCircle className="text-red-500" />
+                <div className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-gray-100">
+                  <div className="flex items-center justify-between mb-2 md:mb-3">
+                    <div className="h-9 w-9 md:h-11 md:w-11 rounded-xl bg-red-500/10 flex items-center justify-center">
+                      <FaTimesCircle className="text-red-500 text-sm md:text-base" />
                     </div>
-                    <span className="text-xs text-gray-400">Absent</span>
+                    <span className="text-[10px] md:text-xs text-gray-400">Absent</span>
                   </div>
-                  <p className="text-2xl font-bold text-red-600">{attendanceStats.absent}</p>
-                  <p className="text-xs text-gray-500 mt-1">Days Absent</p>
+                  <p className="text-xl md:text-xl sm:text-2xl font-bold text-red-600">{attendanceStats.absent}</p>
+                  <p className="text-[10px] md:text-xs text-gray-500 mt-1">Days Absent</p>
                 </div>
 
-                <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                      <FaChartPie className="text-primary" />
+                <div className="bg-white rounded-2xl p-4 md:p-5 shadow-sm border border-gray-100">
+                  <div className="flex items-center justify-between mb-2 md:mb-3">
+                    <div className="h-9 w-9 md:h-11 md:w-11 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <FaChartPie className="text-primary text-sm md:text-base" />
                     </div>
-                    <span className="text-xs text-gray-400">Rate</span>
+                    <span className="text-[10px] md:text-xs text-gray-400">Rate</span>
                   </div>
-                  <p className="text-2xl font-bold text-primary">{attendanceStats.percentage}%</p>
-                  <p className="text-xs text-gray-500 mt-1">Attendance Rate</p>
+                  <p className="text-xl md:text-xl sm:text-2xl font-bold text-primary">{attendanceStats.percentage}%</p>
+                  <p className="text-[10px] md:text-xs text-gray-500 mt-1">Attendance Rate</p>
                 </div>
               </div>
 
@@ -268,13 +268,13 @@ export default function StudentDashboard() {
               <div className="divide-y divide-gray-100">
                 {recentAttendance.map((item, index) => (
                   <div key={index} className="flex items-center justify-between p-4 hover:bg-gray-50 transition-colors">
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
                       <div className={`h-10 w-10 rounded-xl flex items-center justify-center ${getStatusColor(item.status)}`}>
                         {getStatusIcon(item.status)}
                       </div>
                       <div>
                         <p className="font-medium text-gray-800">{item.day}</p>
-                        <p className="text-sm text-gray-500">{item.date}</p>
+                        <p className="text-xs sm:text-sm text-gray-500">{item.date}</p>
                       </div>
                     </div>
                     <span className={`text-sm font-medium px-4 py-1.5 rounded-full capitalize ${getStatusColor(item.status)}`}>
@@ -289,29 +289,29 @@ export default function StudentDashboard() {
       </main>
 
       {/* Bottom Navigation Bar */}
-      <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 px-4 py-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]">
+      <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 px-4 md:px-6 py-2 md:py-3 pb-[max(0.5rem,env(safe-area-inset-bottom))]">
         <div className="max-w-4xl mx-auto flex items-center justify-around">
           <button
             onClick={() => setActiveTab("overview")}
-            className={`flex flex-col items-center gap-1 px-8 py-2 rounded-xl transition-all cursor-pointer ${
+            className={`flex flex-col items-center gap-1 px-8 md:px-12 py-2 md:py-3 rounded-xl transition-all cursor-pointer ${
               activeTab === "overview" 
                 ? "text-primary bg-primary/10" 
                 : "text-gray-400 hover:text-primary hover:bg-gray-100 active:scale-95"
             }`}
           >
-            <FaHome className="text-lg" />
-            <span className="text-xs font-medium">Overview</span>
+            <FaHome className="text-lg md:text-xl" />
+            <span className="text-xs md:text-sm font-medium">Overview</span>
           </button>
           <button
             onClick={() => setActiveTab("attendance")}
-            className={`flex flex-col items-center gap-1 px-8 py-2 rounded-xl transition-all cursor-pointer ${
+            className={`flex flex-col items-center gap-1 px-8 md:px-12 py-2 md:py-3 rounded-xl transition-all cursor-pointer ${
               activeTab === "attendance" 
                 ? "text-primary bg-primary/10" 
                 : "text-gray-400 hover:text-primary hover:bg-gray-100 active:scale-95"
             }`}
           >
-            <FaCalendarAlt className="text-lg" />
-            <span className="text-xs font-medium">History</span>
+            <FaCalendarAlt className="text-lg md:text-xl" />
+            <span className="text-xs md:text-sm font-medium">History</span>
           </button>
         </div>
       </nav>

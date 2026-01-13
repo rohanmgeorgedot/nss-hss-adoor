@@ -21,20 +21,20 @@ const GallerySection = () => {
     <section className="relative w-full overflow-hidden bg-white py-16 md:py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
         {/* Header */}
-        <div className="mb-12 flex flex-col items-center justify-between gap-6 md:flex-row" data-aos="fade-up">
+        <div className="mb-8 flex flex-col items-center justify-between gap-4 md:mb-10 md:flex-row md:gap-6 lg:mb-12" data-aos="fade-up">
           <div className="text-center md:text-left">
-            <div className="mb-4 inline-flex items-center gap-3 rounded-full bg-primary/10 px-4 py-2">
-              <span className="h-2 w-2 rounded-full bg-primary" />
-              <span className="text-sm font-semibold uppercase tracking-wider text-primary">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 sm:mb-4 sm:gap-3 sm:px-4 sm:py-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary sm:h-2 sm:w-2" />
+              <span className="text-xs font-semibold uppercase tracking-wider text-primary sm:text-sm">
                 Gallery
               </span>
             </div>
-            <h2 className="text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
+            <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl lg:text-5xl">
               Capturing <span className="text-primary">Moments</span>
             </h2>
           </div>
           <Link href="/gallery">
-            <button className="group cursor-pointer inline-flex items-center gap-2 rounded-xl bg-gray-900 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-gray-800">
+            <button className="group cursor-pointer inline-flex items-center gap-2 rounded-lg bg-gray-900 px-4 py-2.5 text-xs font-semibold text-white transition-all hover:bg-gray-800 sm:rounded-xl sm:px-6 sm:py-3 sm:text-sm">
               View All Photos
               <FaArrowRight className="transition-transform group-hover:translate-x-1" />
             </button>
@@ -42,13 +42,13 @@ const GallerySection = () => {
         </div>
 
         {/* Gallery Grid - Masonry Style */}
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4 lg:gap-6">
           {/* Large Left Image */}
           <div 
             className="col-span-2 row-span-2"
             data-aos="fade-up"
           >
-            <div className="group relative h-full min-h-[300px] overflow-hidden rounded-3xl md:min-h-[400px]">
+            <div className="group relative h-full min-h-[280px] overflow-hidden rounded-2xl md:min-h-[350px] md:rounded-3xl lg:min-h-[400px]">
               <Image
                 src={galleryImages[0]}
                 alt="Gallery image 1"
@@ -67,7 +67,7 @@ const GallerySection = () => {
           {galleryImages.slice(1, 3).map((image, index) => (
             <div 
               key={index}
-              className="group relative aspect-square overflow-hidden rounded-2xl"
+              className="group relative aspect-square overflow-hidden rounded-xl md:rounded-2xl"
               data-aos="fade-up"
               data-aos-delay={(index + 1) * 100}
             >
@@ -85,7 +85,7 @@ const GallerySection = () => {
           {galleryImages.slice(3, 5).map((image, index) => (
             <div 
               key={index}
-              className="group relative aspect-square overflow-hidden rounded-2xl"
+              className="group relative aspect-square overflow-hidden rounded-xl md:rounded-2xl"
               data-aos="fade-up"
               data-aos-delay={(index + 3) * 100}
             >
@@ -103,7 +103,7 @@ const GallerySection = () => {
           {galleryImages.slice(5, 8).map((image, index) => (
             <div 
               key={index}
-              className={`group relative overflow-hidden rounded-2xl ${index === 0 ? 'col-span-2 aspect-[2/1]' : 'aspect-square'}`}
+              className={`group relative overflow-hidden rounded-xl md:rounded-2xl ${index === 0 ? 'col-span-2 aspect-[2/1]' : 'aspect-square'}`}
               data-aos="fade-up"
               data-aos-delay={(index + 5) * 100}
             >

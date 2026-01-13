@@ -16,23 +16,23 @@ const Founder = () => {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
         {/* Section Header */}
-        <div className="mb-16 text-center" data-aos="fade-up">
-          <div className="mb-4 inline-flex items-center gap-3 rounded-full bg-primary/10 px-4 py-2">
-            <span className="h-2 w-2 rounded-full bg-primary" />
-            <span className="text-sm font-semibold uppercase tracking-wider text-primary">
+        <div className="mb-10 text-center sm:mb-12 md:mb-16" data-aos="fade-up">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 sm:mb-4 sm:gap-3 sm:px-4 sm:py-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary sm:h-2 sm:w-2" />
+            <span className="text-xs font-semibold uppercase tracking-wider text-primary sm:text-sm">
               Our Legacy
             </span>
           </div>
-          <h2 className="text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
+          <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl lg:text-5xl">
             Our <span className="text-primary">Founder</span>
           </h2>
         </div>
 
         {/* Content */}
-        <div className="grid gap-12 lg:grid-cols-5 lg:gap-16 items-center">
+        <div className="grid gap-10 md:grid-cols-5 md:gap-10 lg:gap-16 items-center">
           {/* Image */}
           <div 
-            className="lg:col-span-2 flex justify-center"
+            className="md:col-span-2 flex justify-center"
             data-aos="fade-right"
             data-aos-duration="1000"
           >
@@ -60,31 +60,31 @@ const Founder = () => {
           </div>
 
           {/* Content */}
-          <div className="lg:col-span-3" data-aos="fade-left" data-aos-duration="1000">
-            <h3 className="mb-2 text-2xl font-bold text-gray-900 md:text-3xl lg:text-4xl">
+          <div className="md:col-span-3" data-aos="fade-left" data-aos-duration="1000">
+            <h3 className="mb-2 text-2xl font-bold text-gray-900 md:text-2xl lg:text-4xl">
               Sri Mannathu Padmanabhan
             </h3>
-            <p className="mb-6 text-lg font-semibold text-primary">
+            <p className="mb-4 text-base font-semibold text-primary md:mb-6 md:text-lg">
               Founder, Nair Service Society (NSS)
             </p>
 
-            <div className="relative mb-6 rounded-2xl bg-white p-6 shadow-lg">
-              <FaQuoteRight className="absolute right-4 top-4 text-3xl text-primary/10" />
-              <p className="text-base leading-relaxed text-gray-600 md:text-lg">
+            <div className="relative mb-4 rounded-xl bg-white p-4 shadow-lg md:mb-6 md:rounded-2xl md:p-6">
+              <FaQuoteRight className="absolute right-3 top-3 text-2xl text-primary/10 md:right-4 md:top-4 md:text-3xl" />
+              <p className="text-sm leading-relaxed text-gray-600 md:text-base lg:text-lg">
                 Sri Mannathu Padmanabhan was a visionary social reformer and the founder of the 
                 Nair Service Society (NSS) in 1914. His life was dedicated to the upliftment 
                 of society through education, social reform, and community service.
               </p>
             </div>
 
-            <div className="space-y-4 text-gray-600">
-              <p className="leading-relaxed">
+            <div className="space-y-3 text-gray-600 md:space-y-4">
+              <p className="text-sm leading-relaxed md:text-base">
                 He believed that education was the key to social transformation. Under his 
                 leadership, NSS established numerous educational institutions across Kerala, 
                 including NSS HSS Adoor, to provide quality education 
                 rooted in values and culture.
               </p>
-              <p className="leading-relaxed">
+              <p className="text-sm leading-relaxed md:text-base">
                 His motto <span className="font-semibold text-primary">"Service to humanity is service to God"</span> continues 
                 to inspire our institution in its mission to nurture young minds with knowledge, 
                 discipline, and moral values.
@@ -92,18 +92,18 @@ const Founder = () => {
             </div>
 
             {/* Achievements */}
-            <div className="mt-8 grid grid-cols-3 gap-4">
-              <div className="rounded-xl bg-white p-4 text-center shadow-md">
-                <p className="text-2xl font-bold text-primary">1914</p>
-                <p className="text-xs text-gray-500">Founded NSS</p>
+            <div className="mt-6 grid grid-cols-3 gap-3 md:mt-8 md:gap-4">
+              <div className="rounded-lg bg-white p-3 text-center shadow-md md:rounded-xl md:p-4">
+                <p className="text-xl font-bold text-primary md:text-2xl">1914</p>
+                <p className="text-[10px] text-gray-500 md:text-xs">Founded NSS</p>
               </div>
-              <div className="rounded-xl bg-white p-4 text-center shadow-md">
-                <p className="text-2xl font-bold text-primary">100+</p>
-                <p className="text-xs text-gray-500">Schools Started</p>
+              <div className="rounded-lg bg-white p-3 text-center shadow-md md:rounded-xl md:p-4">
+                <p className="text-xl font-bold text-primary md:text-2xl">100+</p>
+                <p className="text-[10px] text-gray-500 md:text-xs">Schools Started</p>
               </div>
-              <div className="rounded-xl bg-white p-4 text-center shadow-md">
-                <p className="text-2xl font-bold text-primary">∞</p>
-                <p className="text-xs text-gray-500">Lives Changed</p>
+              <div className="rounded-lg bg-white p-3 text-center shadow-md md:rounded-xl md:p-4">
+                <p className="text-xl font-bold text-primary md:text-2xl">∞</p>
+                <p className="text-[10px] text-gray-500 md:text-xs">Lives Changed</p>
               </div>
             </div>
           </div>

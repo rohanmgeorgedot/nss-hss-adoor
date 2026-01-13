@@ -53,17 +53,17 @@ const Stats = () => {
       <div className="relative z-10 py-16 md:py-24 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
           {/* Header */}
-          <div className="mb-16 text-center" data-aos="fade-up">
-            <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl lg:text-5xl">
+          <div className="mb-10 text-center sm:mb-12 md:mb-16" data-aos="fade-up">
+            <h2 className="mb-3 text-2xl font-bold text-white sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl">
               Our Achievements in Numbers
             </h2>
-            <p className="mx-auto max-w-2xl text-base text-white/80 md:text-lg">
+            <p className="mx-auto max-w-2xl text-sm text-white/80 sm:text-base md:text-lg">
               A glimpse of our journey and the milestones we have achieved together.
             </p>
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-2 gap-6 md:gap-8 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4 md:gap-6 lg:gap-8">
             {stats.map((stat, index) => (
               <div
                 key={index}
@@ -71,13 +71,13 @@ const Stats = () => {
                 data-aos="zoom-in"
                 data-aos-delay={index * 100}
               >
-                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-sm transition-all group-hover:bg-white/20 group-hover:scale-110 md:h-24 md:w-24">
-                  <stat.icon className="text-3xl text-white md:text-4xl" />
+                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-white/10 backdrop-blur-sm transition-all group-hover:bg-white/20 group-hover:scale-110 sm:mb-6 sm:h-20 sm:w-20 sm:rounded-2xl md:h-20 md:w-20 lg:h-24 lg:w-24">
+                  <stat.icon className="text-2xl text-white sm:text-3xl md:text-3xl lg:text-4xl" />
                 </div>
-                <p className="mb-2 text-4xl font-bold text-white md:text-5xl lg:text-6xl">
+                <p className="mb-1 text-3xl font-bold text-white sm:mb-2 sm:text-4xl md:text-4xl lg:text-6xl">
                   {stat.value}<span className="text-white/70">{stat.suffix}</span>
                 </p>
-                <p className="text-base font-medium text-white/80 md:text-lg">
+                <p className="text-sm font-medium text-white/80 sm:text-base md:text-base lg:text-lg">
                   {stat.label}
                 </p>
               </div>

@@ -58,28 +58,28 @@ const Features = () => {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
         {/* Section Header */}
-        <div className="mb-16 text-center" data-aos="fade-up">
-          <div className="mb-4 inline-flex items-center gap-3 rounded-full bg-primary/10 px-4 py-2">
-            <span className="h-2 w-2 rounded-full bg-primary" />
-            <span className="text-sm font-semibold uppercase tracking-wider text-primary">
+        <div className="mb-10 text-center sm:mb-12 md:mb-16" data-aos="fade-up">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 sm:mb-4 sm:gap-3 sm:px-4 sm:py-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary sm:h-2 sm:w-2" />
+            <span className="text-xs font-semibold uppercase tracking-wider text-primary sm:text-sm">
               Our Facilities
             </span>
           </div>
-          <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
+          <h2 className="mb-3 text-2xl font-bold text-gray-900 sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl">
             World-Class <span className="text-primary">Infrastructure</span>
           </h2>
-          <p className="mx-auto max-w-2xl text-base text-gray-600 md:text-lg">
+          <p className="mx-auto max-w-2xl text-sm text-gray-600 sm:text-base md:text-lg">
             We provide state-of-the-art facilities to ensure the best learning 
             environment for our students.
           </p>
         </div>
 
         {/* Features Grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl md:p-8"
+              className="group relative overflow-hidden rounded-xl bg-white p-5 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl sm:rounded-2xl sm:p-6 md:p-6 lg:p-8"
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
@@ -89,21 +89,21 @@ const Features = () => {
               {/* Content */}
               <div className="relative z-10">
                 {/* Icon */}
-                <div className={`mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${feature.color} text-white shadow-lg`}>
-                  <feature.icon className="text-2xl" />
+                <div className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${feature.color} text-white shadow-lg sm:mb-5 sm:h-14 sm:w-14 md:mb-6 md:h-16 md:w-16 md:rounded-2xl`}>
+                  <feature.icon className="text-xl sm:text-2xl" />
                 </div>
 
                 {/* Text */}
-                <h3 className="mb-3 text-xl font-bold text-gray-900 transition-colors group-hover:text-white">
+                <h3 className="mb-2 text-lg font-bold text-gray-900 transition-colors group-hover:text-white sm:mb-3 sm:text-xl">
                   {feature.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-gray-600 transition-colors group-hover:text-white/90 md:text-base">
+                <p className="text-xs leading-relaxed text-gray-600 transition-colors group-hover:text-white/90 sm:text-sm md:text-base">
                   {feature.description}
                 </p>
               </div>
 
               {/* Decorative Circle */}
-              <div className={`absolute -bottom-10 -right-10 h-32 w-32 rounded-full bg-gradient-to-br ${feature.color} opacity-10 transition-all group-hover:opacity-20`} />
+              <div className={`absolute -bottom-10 -right-10 h-24 w-24 rounded-full bg-gradient-to-br ${feature.color} opacity-10 transition-all group-hover:opacity-20 sm:h-32 sm:w-32`} />
             </div>
           ))}
         </div>

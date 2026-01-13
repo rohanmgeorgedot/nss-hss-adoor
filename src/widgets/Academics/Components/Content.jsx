@@ -72,7 +72,7 @@ export default function Content() {
           backgroundSize: '50px 50px'
         }} />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-8 lg:px-16">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
           <div className="text-center">
             {/* Badge */}
             <div 
@@ -121,11 +121,11 @@ export default function Content() {
 
       {/* Introduction */}
       <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
             {/* Image */}
             <div className="relative" data-aos="fade-right">
-              <div className="overflow-hidden rounded-2xl shadow-xl">
+              <div className="overflow-hidden rounded-xl sm:rounded-2xl shadow-xl w-full h-auto">
                 <Image
                   src="/images/gallery/1.webp"
                   alt="Students in Classroom"
@@ -179,8 +179,8 @@ export default function Content() {
 
       {/* Streams Section */}
       <section className="bg-gray-50 py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-16">
-          <div className="mb-12 text-center" data-aos="fade-up">
+        <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
+          <div className="mb-8 sm:mb-10 md:mb-12 text-center" data-aos="fade-up">
             <div className="mb-4 inline-flex items-center justify-center gap-2">
               <span className="h-px w-8 bg-primary" />
               <span className="text-sm font-semibold uppercase tracking-wider text-primary">
@@ -196,7 +196,7 @@ export default function Content() {
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
             {streams.map((stream, index) => (
               <div
                 key={index}
@@ -217,16 +217,16 @@ export default function Content() {
 
                 {/* Content */}
                 <div className="p-6">
-                  <p className="mb-4 text-sm text-font-secondary">{stream.description}</p>
+                  <p className="mb-3 sm:mb-4 text-xs sm:text-sm text-font-secondary">{stream.description}</p>
 
                   {/* Subjects */}
                   <div className="mb-4">
                     <h4 className="mb-2 text-sm font-semibold text-font-primary">Core Subjects:</h4>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
                       {stream.subjects.compulsory.map((subject, idx) => (
                         <span
                           key={idx}
-                          className="rounded-full bg-gray-100 px-3 py-1 text-xs text-font-secondary"
+                          className="rounded-full bg-gray-100 px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs text-font-secondary"
                         >
                           {subject}
                         </span>
@@ -237,7 +237,7 @@ export default function Content() {
                   {stream.subjects.optional.length > 0 && (
                     <div className="mb-4">
                       <h4 className="mb-2 text-sm font-semibold text-font-primary">Optional:</h4>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1.5 sm:gap-2">
                         {stream.subjects.optional.map((subject, idx) => (
                           <span
                             key={idx}
@@ -264,7 +264,7 @@ export default function Content() {
 
       {/* High School Section */}
       <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
             {/* Content */}
             <div data-aos="fade-right">
@@ -306,7 +306,7 @@ export default function Content() {
 
             {/* Image */}
             <div className="relative" data-aos="fade-left">
-              <div className="overflow-hidden rounded-2xl shadow-xl">
+              <div className="overflow-hidden rounded-xl sm:rounded-2xl shadow-xl w-full h-auto">
                 <Image
                   src="/images/gallery/2.webp"
                   alt="High School Students"
@@ -322,16 +322,16 @@ export default function Content() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-primary py-16 md:py-20">
-        <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-16 text-center">
-          <h2 className="mb-4 text-2xl font-bold text-white md:text-3xl lg:text-4xl">
+      <section className="bg-primary py-10 sm:py-12 md:py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-4 sm:px-5 md:px-8 lg:px-16 text-center">
+          <h2 className="mb-3 sm:mb-4 text-xl sm:text-2xl font-bold text-white md:text-3xl lg:text-4xl">
             Ready to Begin Your Academic Journey?
           </h2>
-          <p className="mx-auto mb-8 max-w-2xl text-base text-white/80 md:text-lg">
+          <p className="mx-auto mb-6 sm:mb-8 max-w-2xl text-sm sm:text-base text-white/80 md:text-lg">
             Join NSS HSS Adoor and be part of a legacy of academic excellence.
           </p>
           <a href="/contact">
-            <button className="cursor-pointer rounded-lg bg-white px-8 py-4 text-sm font-semibold text-primary transition-all hover:bg-gray-100 md:text-base">
+            <button className="cursor-pointer rounded-lg bg-white px-6 py-3 sm:px-8 sm:py-4 text-sm font-semibold text-primary transition-all hover:bg-gray-100 md:text-base">
               Contact Us for Admissions
             </button>
           </a>

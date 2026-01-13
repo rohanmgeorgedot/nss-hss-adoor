@@ -3,7 +3,8 @@
 import { useState, useEffect, createContext, useContext } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { FaDownload, FaMobileAlt, FaCheckCircle, FaPlusSquare } from "react-icons/fa";
+import Link from "next/link";
+import { FaDownload, FaMobileAlt, FaCheckCircle, FaPlusSquare, FaArrowLeft } from "react-icons/fa";
 import { IoShareOutline } from "react-icons/io5";
 import { supabase } from "@lib/supabase";
 
@@ -35,10 +36,13 @@ export default function AppLayout({ children }) {
   useEffect(() => {
     // Check device type and PWA status
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    const mobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
+    // Include tablets in mobile detection
+    const mobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini|tablet|playbook|silk/i.test(userAgent.toLowerCase());
     const ios = /iphone|ipad|ipod/i.test(userAgent.toLowerCase());
+    // Also check screen width for tablets that might not be detected by user agent
+    const isTabletSize = window.innerWidth <= 1024 && window.innerWidth >= 600;
     
-    setIsMobile(mobile);
+    setIsMobile(mobile || isTabletSize);
     setIsIOS(ios);
 
     // Check if running as installed PWA
@@ -244,18 +248,27 @@ export default function AppLayout({ children }) {
             >
               Got it!
             </button>
+
+            {/* Back to Website */}
+            <Link 
+              href="/" 
+              className="w-full mt-4 text-gray-400 text-sm py-2 hover:text-gray-600 transition-colors flex items-center justify-center gap-2"
+            >
+              <FaArrowLeft className="text-xs" />
+              Back to Website
+            </Link>
           </div>
         </div>
       );
     }
 
-    // Mobile Install Page
+    // Mobile/Tablet Install Page
     return (
-      <div className="min-h-screen bg-gradient-to-br from-primary via-green-600 to-teal-600 flex items-center justify-center p-5">
-        <div className="bg-white rounded-3xl p-6 max-w-sm w-full shadow-2xl">
+      <div className="min-h-screen bg-gradient-to-br from-primary via-green-600 to-teal-600 flex items-center justify-center p-5 md:p-8">
+        <div className="bg-white rounded-3xl p-6 md:p-10 max-w-sm md:max-w-md w-full shadow-2xl">
           {/* Header */}
-          <div className="text-center mb-6">
-            <div className="relative w-20 h-20 mx-auto mb-4">
+          <div className="text-center mb-6 md:mb-8">
+            <div className="relative w-20 h-20 md:w-28 md:h-28 mx-auto mb-4 md:mb-6">
               <Image
                 src="/images/logo.webp"
                 alt="NSS HSS Adoor"
@@ -263,41 +276,50 @@ export default function AppLayout({ children }) {
                 className="rounded-2xl object-cover shadow-lg"
               />
             </div>
-            <h1 className="text-xl font-bold text-gray-900">NSS HSS Adoor</h1>
-            <p className="text-sm text-gray-500">Student & Teacher Portal</p>
+            <h1 className="text-xl md:text-2xl font-bold text-gray-900">NSS HSS Adoor</h1>
+            <p className="text-sm md:text-base text-gray-500">Student & Teacher Portal</p>
           </div>
 
           {/* Features */}
-          <div className="space-y-3 mb-6">
-            <div className="flex items-center gap-3 p-3 bg-green-50 rounded-xl">
-              <FaCheckCircle className="text-green-500 flex-shrink-0" />
-              <span className="text-sm text-gray-700">Quick access from home screen</span>
+          <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
+            <div className="flex items-center gap-3 p-3 md:p-4 bg-green-50 rounded-xl">
+              <FaCheckCircle className="text-green-500 flex-shrink-0 text-lg md:text-xl" />
+              <span className="text-sm md:text-base text-gray-700">Quick access from home screen</span>
             </div>
-            <div className="flex items-center gap-3 p-3 bg-green-50 rounded-xl">
-              <FaCheckCircle className="text-green-500 flex-shrink-0" />
-              <span className="text-sm text-gray-700">Fast & smooth experience</span>
+            <div className="flex items-center gap-3 p-3 md:p-4 bg-green-50 rounded-xl">
+              <FaCheckCircle className="text-green-500 flex-shrink-0 text-lg md:text-xl" />
+              <span className="text-sm md:text-base text-gray-700">Fast & smooth experience</span>
             </div>
-            <div className="flex items-center gap-3 p-3 bg-green-50 rounded-xl">
-              <FaCheckCircle className="text-green-500 flex-shrink-0" />
-              <span className="text-sm text-gray-700">No app store download needed</span>
+            <div className="flex items-center gap-3 p-3 md:p-4 bg-green-50 rounded-xl">
+              <FaCheckCircle className="text-green-500 flex-shrink-0 text-lg md:text-xl" />
+              <span className="text-sm md:text-base text-gray-700">No app store download needed</span>
             </div>
           </div>
 
           {/* Install Button */}
           <button
             onClick={handleInstallClick}
-            className="w-full bg-gradient-to-r from-primary to-green-500 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all active:scale-[0.98] cursor-pointer"
+            className="w-full bg-gradient-to-r from-primary to-green-500 text-white py-4 md:py-5 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all active:scale-[0.98] cursor-pointer text-base md:text-lg"
           >
-            <FaDownload className="text-lg" />
+            <FaDownload className="text-lg md:text-xl" />
             {isIOS ? "How to Install" : "Install App"}
           </button>
 
           {/* Info */}
-          <p className="text-center text-xs text-gray-400 mt-4">
+          <p className="text-center text-xs md:text-sm text-gray-400 mt-4">
             {isIOS 
               ? "Opens instructions for Safari" 
               : "Installs directly to your home screen"}
           </p>
+
+          {/* Back to Website */}
+          <Link 
+            href="/" 
+            className="w-full mt-4 pt-4 border-t border-gray-100 text-gray-400 text-sm md:text-base py-2 hover:text-gray-600 transition-colors flex items-center justify-center gap-2"
+          >
+            <FaArrowLeft className="text-xs" />
+            Back to Website
+          </Link>
         </div>
       </div>
     );

@@ -35,10 +35,10 @@ const Banner = () => {
 
       {/* Main Content */}
       <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-4 py-24 sm:px-5 md:px-8 lg:px-16 lg:py-20">
-        <div className="grid w-full gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+        <div className="grid w-full gap-10 md:grid-cols-5 md:gap-8 lg:grid-cols-2 lg:gap-16 items-center">
           
           {/* Left Content */}
-          <div className="text-center lg:text-left">
+          <div className="text-center md:col-span-3 md:text-left lg:col-span-1">
             {/* Badge */}
             <div 
               className="mb-6 inline-flex items-center gap-3 rounded-full border border-primary/30 bg-primary/10 px-5 py-2.5 backdrop-blur-sm"
@@ -85,7 +85,7 @@ const Banner = () => {
 
             {/* Description */}
             <p 
-              className="mx-auto mb-8 max-w-xl text-base leading-relaxed text-gray-400 lg:mx-0 md:text-lg"
+              className="mx-auto mb-8 max-w-xl text-sm leading-relaxed text-gray-400 md:mx-0 md:text-base lg:text-lg"
               data-aos="fade-up"
               data-aos-delay="300"
             >
@@ -95,7 +95,7 @@ const Banner = () => {
 
             {/* CTA Buttons */}
             <div 
-              className="mb-10 flex flex-col items-center gap-4 sm:flex-row lg:justify-start"
+              className="mb-10 flex flex-col items-center gap-4 sm:flex-row md:justify-start"
               data-aos="fade-up"
               data-aos-delay="400"
             >
@@ -147,65 +147,65 @@ const Banner = () => {
 
           {/* Right Content - Image Card */}
           <div 
-            className="relative hidden lg:block"
+            className="relative hidden md:col-span-2 md:block lg:col-span-1"
             data-aos="fade-left"
             data-aos-delay="300"
           >
             <div className="relative">
               {/* Main Image Card */}
-              <div className="relative z-10 overflow-hidden rounded-3xl border-2 border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-3 shadow-2xl backdrop-blur-sm">
-                <div className="overflow-hidden rounded-2xl">
+              <div className="relative z-10 overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-2 shadow-2xl backdrop-blur-sm md:rounded-3xl lg:p-3">
+                <div className="overflow-hidden rounded-xl md:rounded-2xl">
                   <Image
                     src="/images/about/1.webp"
                     alt="NSS HSS Adoor Students"
                     width={500}
                     height={600}
-                    className="h-[450px] w-full object-cover"
+                    className="h-[320px] w-full object-cover md:h-[380px] lg:h-[450px]"
                   />
                 </div>
                 
                 {/* Overlay Info Card */}
-                <div className="absolute bottom-8 left-8 right-8 rounded-2xl bg-white/95 p-5 shadow-xl backdrop-blur-sm">
+                <div className="absolute bottom-4 left-4 right-4 rounded-xl bg-white/95 p-3 shadow-xl backdrop-blur-sm md:bottom-6 md:left-6 md:right-6 md:p-4 lg:bottom-8 lg:left-8 lg:right-8 lg:rounded-2xl lg:p-5">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">School Code</p>
-                      <p className="text-2xl font-bold text-gray-900">03030</p>
+                      <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-500 md:text-xs">School Code</p>
+                      <p className="text-lg font-bold text-gray-900 md:text-xl lg:text-2xl">03030</p>
                     </div>
-                    <div className="h-12 w-px bg-gray-200" />
+                    <div className="h-8 w-px bg-gray-200 md:h-10 lg:h-12" />
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">Since</p>
-                      <p className="text-2xl font-bold text-gray-900">1934</p>
+                      <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-500 md:text-xs">Since</p>
+                      <p className="text-lg font-bold text-gray-900 md:text-xl lg:text-2xl">1934</p>
                     </div>
-                    <div className="h-12 w-px bg-gray-200" />
+                    <div className="h-8 w-px bg-gray-200 md:h-10 lg:h-12" />
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">UDISE</p>
-                      <p className="text-lg font-bold text-gray-900">32120100714</p>
+                      <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-500 md:text-xs">UDISE</p>
+                      <p className="text-sm font-bold text-gray-900 md:text-base lg:text-lg">32120100714</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Floating Elements */}
-              <div className="absolute -left-8 top-20 rounded-2xl border border-white/10 bg-gray-800/90 p-4 shadow-xl backdrop-blur-sm">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-500/20">
-                    <span className="text-xl">✓</span>
+              <div className="absolute -left-4 top-16 hidden rounded-xl border border-white/10 bg-gray-800/90 p-3 shadow-xl backdrop-blur-sm lg:-left-8 lg:top-20 lg:block lg:rounded-2xl lg:p-4">
+                <div className="flex items-center gap-2 lg:gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-green-500/20 lg:h-12 lg:w-12 lg:rounded-xl">
+                    <span className="text-base lg:text-xl">✓</span>
                   </div>
                   <div>
-                    <p className="font-bold text-white">Kerala Board</p>
-                    <p className="text-xs text-gray-400">State Syllabus</p>
+                    <p className="text-sm font-bold text-white lg:text-base">Kerala Board</p>
+                    <p className="text-[10px] text-gray-400 lg:text-xs">State Syllabus</p>
                   </div>
                 </div>
               </div>
 
-              <div className="absolute -right-4 top-1/2 rounded-2xl border border-white/10 bg-gray-800/90 p-4 shadow-xl backdrop-blur-sm">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/20">
-                    <span className="text-xl">🏆</span>
+              <div className="absolute -right-2 top-1/2 hidden rounded-xl border border-white/10 bg-gray-800/90 p-3 shadow-xl backdrop-blur-sm lg:-right-4 lg:block lg:rounded-2xl lg:p-4">
+                <div className="flex items-center gap-2 lg:gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/20 lg:h-12 lg:w-12 lg:rounded-xl">
+                    <span className="text-base lg:text-xl">🏆</span>
                   </div>
                   <div>
-                    <p className="font-bold text-white">Top School</p>
-                    <p className="text-xs text-gray-400">in Adoor</p>
+                    <p className="text-sm font-bold text-white lg:text-base">Top School</p>
+                    <p className="text-[10px] text-gray-400 lg:text-xs">in Adoor</p>
                   </div>
                 </div>
               </div>

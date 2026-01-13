@@ -24,36 +24,36 @@ const CTA = () => {
       {/* Content */}
       <div className="relative z-10 py-16 md:py-24 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+          <div className="grid gap-10 md:grid-cols-2 md:gap-8 lg:gap-16 items-center">
             {/* Left Content */}
             <div data-aos="fade-right">
-              <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-primary/30 bg-primary/10 px-4 py-2">
-                <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-                <span className="text-sm font-medium text-white/90">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1.5 sm:mb-6 sm:gap-3 sm:px-4 sm:py-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse sm:h-2 sm:w-2" />
+                <span className="text-xs font-medium text-white/90 sm:text-sm">
                   Admissions Open 2026-27
                 </span>
               </div>
 
-              <h2 className="mb-6 text-3xl font-bold leading-tight text-white md:text-4xl lg:text-5xl">
+              <h2 className="mb-4 text-2xl font-bold leading-tight text-white sm:mb-6 sm:text-3xl md:text-4xl lg:text-5xl">
                 Begin Your Child's Journey to{" "}
                 <span className="text-primary">Success</span>
               </h2>
 
-              <p className="mb-8 text-base text-gray-400 md:text-lg">
+              <p className="mb-6 text-sm text-gray-400 sm:mb-8 sm:text-base md:text-lg">
                 Give your child the gift of quality education and a bright future. 
                 Join NSS HSS Adoor and be part of a legacy of 
                 academic excellence spanning over 90 years.
               </p>
               
-              <div className="flex flex-col gap-4 sm:flex-row">
+              <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
                 <Link href="/contact">
-                  <button className="group cursor-pointer flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all hover:bg-primary-600 hover:shadow-xl sm:w-auto md:text-base">
+                  <button className="group cursor-pointer flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all hover:bg-primary-600 hover:shadow-xl sm:w-auto sm:rounded-xl sm:px-8 sm:py-4 md:text-base">
                     Apply Now
                     <FaArrowRight className="transition-transform group-hover:translate-x-1" />
                   </button>
                 </Link>
                 <Link href="/about">
-                  <button className="cursor-pointer flex w-full items-center justify-center gap-2 rounded-xl border border-gray-700 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10 sm:w-auto md:text-base">
+                  <button className="cursor-pointer flex w-full items-center justify-center gap-2 rounded-lg border border-gray-700 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10 sm:w-auto sm:rounded-xl sm:px-8 sm:py-4 md:text-base">
                     Learn More
                   </button>
                 </Link>
@@ -62,7 +62,7 @@ const CTA = () => {
 
             {/* Right Content - Contact Card */}
             <div 
-              className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-orange-500 p-6 shadow-2xl md:p-8"
+              className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-orange-500 p-5 shadow-2xl md:rounded-3xl md:p-6 lg:p-8"
               data-aos="fade-left"
             >
               {/* Background Pattern */}
@@ -77,15 +77,15 @@ const CTA = () => {
               <div className="absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-orange-300/20 blur-3xl" />
 
               <div className="relative z-10">
-                <h3 className="mb-6 text-xl font-bold text-white md:text-2xl">
+                <h3 className="mb-4 text-lg font-bold text-white md:mb-6 md:text-xl lg:text-2xl">
                   Get in Touch
                 </h3>
 
-                <div className="space-y-5">
+                <div className="space-y-4 md:space-y-5">
                   {/* Phone */}
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
-                      <FaPhoneAlt className="text-lg text-white" />
+                  <div className="flex items-start gap-3 md:gap-4">
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-white/20 backdrop-blur-sm md:h-12 md:w-12 md:rounded-xl">
+                      <FaPhoneAlt className="text-base text-white md:text-lg" />
                     </div>
                     <div>
                       <p className="text-xs font-medium uppercase tracking-wider text-white/70">Call Us</p>
@@ -107,9 +107,9 @@ const CTA = () => {
                   </div>
 
                   {/* Email */}
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
-                      <FaEnvelope className="text-lg text-white" />
+                  <div className="flex items-start gap-3 md:gap-4">
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-white/20 backdrop-blur-sm md:h-12 md:w-12 md:rounded-xl">
+                      <FaEnvelope className="text-base text-white md:text-lg" />
                     </div>
                     <div>
                       <p className="text-xs font-medium uppercase tracking-wider text-white/70">Email Us</p>
@@ -123,9 +123,9 @@ const CTA = () => {
                   </div>
 
                   {/* Address */}
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
-                      <FaMapMarkerAlt className="text-lg text-white" />
+                  <div className="flex items-start gap-3 md:gap-4">
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-white/20 backdrop-blur-sm md:h-12 md:w-12 md:rounded-xl">
+                      <FaMapMarkerAlt className="text-base text-white md:text-lg" />
                     </div>
                     <div>
                       <p className="text-xs font-medium uppercase tracking-wider text-white/70">Visit Us</p>
@@ -138,18 +138,18 @@ const CTA = () => {
                 </div>
 
                 {/* Quick Info */}
-                <div className="mt-6 grid grid-cols-3 gap-3 rounded-2xl bg-white/10 p-4 backdrop-blur-sm">
+                <div className="mt-5 grid grid-cols-3 gap-2 rounded-xl bg-white/10 p-3 backdrop-blur-sm md:mt-6 md:gap-3 md:rounded-2xl md:p-4">
                   <div className="text-center">
-                    <p className="text-xl font-bold text-white md:text-2xl">03030</p>
-                    <p className="text-xs text-white/70">School Code</p>
+                    <p className="text-lg font-bold text-white md:text-xl lg:text-2xl">03030</p>
+                    <p className="text-[10px] text-white/70 md:text-xs">School Code</p>
                   </div>
                   <div className="text-center border-l border-r border-white/20">
-                    <p className="text-xl font-bold text-white md:text-2xl">1934</p>
-                    <p className="text-xs text-white/70">Established</p>
+                    <p className="text-lg font-bold text-white md:text-xl lg:text-2xl">1934</p>
+                    <p className="text-[10px] text-white/70 md:text-xs">Established</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-xl font-bold text-white md:text-2xl">90+</p>
-                    <p className="text-xs text-white/70">Years</p>
+                    <p className="text-lg font-bold text-white md:text-xl lg:text-2xl">90+</p>
+                    <p className="text-[10px] text-white/70 md:text-xs">Years</p>
                   </div>
                 </div>
               </div>
