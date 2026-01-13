@@ -154,13 +154,14 @@ const Banner = () => {
             <div className="relative">
               {/* Main Image Card */}
               <div className="relative z-10 overflow-hidden rounded-2xl border-2 border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-1.5 shadow-2xl backdrop-blur-sm sm:p-2 md:rounded-3xl lg:p-3">
-                <div className="overflow-hidden rounded-xl md:rounded-2xl">
+                <div className="relative overflow-hidden rounded-xl md:rounded-2xl aspect-[4/3] sm:aspect-[4/3] md:aspect-[4/5] lg:aspect-[5/6]">
                   <Image
                     src="/images/about/1.webp"
                     alt="NSS HSS Adoor Students"
-                    width={500}
-                    height={600}
-                    className="h-[200px] w-full object-cover sm:h-[280px] md:h-[380px] lg:h-[450px]"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 500px"
+                    className="object-cover"
+                    priority
                   />
                 </div>
                 
