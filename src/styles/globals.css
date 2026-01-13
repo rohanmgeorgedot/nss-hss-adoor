@@ -1,6 +1,19 @@
 @import "tailwindcss";
 
 /* ========================================
+   COMPREHENSIVE RESPONSIVE DESIGN SYSTEM
+   ======================================== 
+   
+   Standard breakpoints:
+   - xs: 0-639px (phones: iPhone SE 375px, Galaxy 360px, iPhone 14 390px)
+   - sm: 640px+ (large phones: iPhone Pro Max 428px landscape)
+   - md: 768px+ (tablets: iPad Mini 768px, iPad Air 820px)
+   - lg: 1024px+ (laptops: small laptops, iPad Pro landscape)
+   - xl: 1280px+ (desktops: MacBook Air 13")
+   - 2xl: 1536px+ (large screens: MacBook Pro 14" 1512px, 1080p 1920px)
+*/
+
+/* ========================================
    PERFORMANCE OPTIMIZATIONS
    ======================================== */
 
@@ -157,6 +170,134 @@ button, a, [role="button"] {
   }
   .safe-top {
     padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* ========================================
+   RESPONSIVE TYPOGRAPHY SCALING
+   ======================================== */
+
+/* Base responsive text - scales smoothly across devices */
+html {
+  font-size: 14px; /* Mobile base */
+}
+
+@media (min-width: 640px) {
+  html {
+    font-size: 15px; /* Tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 16px; /* Desktop */
+  }
+}
+
+@media (min-width: 1536px) {
+  html {
+    font-size: 17px; /* Large screens */
+  }
+}
+
+/* ========================================
+   RESPONSIVE SPACING UTILITIES
+   ======================================== */
+
+/* Container padding that adapts to screen size */
+.container-padding {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-padding {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-padding {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+/* ========================================
+   RESPONSIVE CARD UTILITIES
+   ======================================== */
+
+/* Cards that adapt to all screen sizes */
+.responsive-card {
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .responsive-card {
+    border-radius: 1rem;
+    padding: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .responsive-card {
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-card {
+    border-radius: 1.5rem;
+    padding: 2rem;
+  }
+}
+
+/* ========================================
+   EXTRA SMALL DEVICE FIXES (< 375px)
+   ======================================== */
+
+@media (max-width: 374px) {
+  /* Smaller text for very small screens */
+  .text-responsive-sm {
+    font-size: 0.75rem !important;
+  }
+  
+  /* Tighter spacing */
+  .gap-responsive {
+    gap: 0.5rem !important;
+  }
+  
+  /* Smaller padding */
+  .p-responsive {
+    padding: 0.75rem !important;
+  }
+}
+
+/* ========================================
+   LANDSCAPE MODE FIXES
+   ======================================== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Reduce vertical padding in landscape */
+  .section-padding {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  
+  /* Smaller hero section in landscape */
+  .hero-section {
+    min-height: 100vh;
+    min-height: 100svh; /* Use small viewport height */
   }
 }
 

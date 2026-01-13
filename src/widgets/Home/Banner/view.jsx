@@ -145,7 +145,45 @@ const Banner = () => {
             </div>
           </div>
 
-          {/* Right Content - Image Card */}
+          {/* Right Content - Image Card - Mobile Version */}
+          <div 
+            className="relative md:hidden"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-2">
+              <div className="overflow-hidden rounded-xl">
+                <Image
+                  src="/images/about/1.webp"
+                  alt="NSS HSS Adoor Students"
+                  width={400}
+                  height={250}
+                  className="h-[200px] w-full object-cover"
+                />
+              </div>
+              {/* Mobile Info Card */}
+              <div className="absolute bottom-4 left-4 right-4 rounded-lg bg-white/95 p-3 shadow-lg backdrop-blur-sm">
+                <div className="flex items-center justify-between text-center">
+                  <div className="flex-1">
+                    <p className="text-[9px] font-semibold uppercase tracking-wider text-gray-500">Code</p>
+                    <p className="text-sm font-bold text-gray-900">03030</p>
+                  </div>
+                  <div className="h-6 w-px bg-gray-200" />
+                  <div className="flex-1">
+                    <p className="text-[9px] font-semibold uppercase tracking-wider text-gray-500">Since</p>
+                    <p className="text-sm font-bold text-gray-900">1934</p>
+                  </div>
+                  <div className="h-6 w-px bg-gray-200" />
+                  <div className="flex-1">
+                    <p className="text-[9px] font-semibold uppercase tracking-wider text-gray-500">UDISE</p>
+                    <p className="text-[10px] font-bold text-gray-900">32120100714</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Content - Image Card - Tablet & Desktop */}
           <div 
             className="relative hidden md:col-span-2 md:block lg:col-span-1"
             data-aos="fade-left"
