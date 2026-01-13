@@ -139,3 +139,56 @@ export const getClassById = async (classId) => {
     .single();
   return { data, error };
 };
+
+// Gallery helpers
+export const getGalleryImages = async () => {
+  try {
+    const { data, error } = await supabase.storage
+      .from('gallery')
+      .list('', {
+        limit: 100,
+        sortBy: { column: 'created_at', order: 'desc' },
+      });
+
+    if (error) throw error;
+
+    // Filter only image files
+    const imageFiles = data.filter(file => 
+      file.name.match(/\.(jpg|jpeg|png|webp|gif)$/i)
+    );
+
+    // Get public URLs for images
+    const imagesWithUrls = imageFiles.map(file => ({
+      name: file.name,
+      src: supabase.storage.from('gallery').getPublicUrl(file.name).data.publicUrl,
+      alt: `NSS HSS Adoor Gallery - ${file.name}`,
+      created_at: file.created_at,
+    }));
+
+    return { data: imagesWithUrls, error: null };
+  } catch (error) {
+    return { data: null, error };
+  }
+};
+
+export const uploadGalleryImage = async (file) => {
+  const fileExt = file.name.split('.').pop();
+  const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`;
+
+  const { data, error } = await supabase.storage
+    .from('gallery')
+    .upload(fileName, file, {
+      cacheControl: '3600',
+      upsert: false,
+    });
+
+  return { data, error };
+};
+
+export const deleteGalleryImage = async (fileName) => {
+  const { error } = await supabase.storage
+    .from('gallery')
+    .remove([fileName]);
+
+  return { error };
+};

@@ -1,22 +1,68 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRight, FaCamera } from "react-icons/fa";
+import { getGalleryImages } from "@lib/supabase";
 
-const galleryImages = [
-  "/images/gallery/1.webp",
-  "/images/gallery/2.webp",
-  "/images/gallery/3.webp",
-  "/images/gallery/4.webp",
-  "/images/gallery/5.webp",
-  "/images/gallery/6.webp",
-  "/images/gallery/7.webp",
-  "/images/gallery/8.webp",
-];
+// Shuffle array randomly
+const shuffleArray = (array) => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
 
 const GallerySection = () => {
+  const [galleryImages, setGalleryImages] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch images from Supabase on mount
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const { data, error } = await getGalleryImages();
+        
+        if (!error && data && data.length > 0) {
+          // Shuffle and take up to 8 random images
+          const shuffled = shuffleArray(data);
+          setGalleryImages(shuffled.slice(0, 8));
+        }
+      } catch (err) {
+        console.error("Error fetching gallery images:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchImages();
+  }, []);
+
+  // Don't render section if no images and not loading
+  if (!loading && galleryImages.length === 0) {
+    return null;
+  }
+
+  // Dynamic grid item classes based on index and total count
+  const getGridItemClass = (index, total) => {
+    // For very few images, use simple grid
+    if (total <= 4) {
+      return "aspect-square";
+    }
+    
+    // For 5-8 images, create varied layout
+    if (index === 0) {
+      return "col-span-2 row-span-2 aspect-square";
+    }
+    if (total >= 6 && index === 5) {
+      return "col-span-2 aspect-[2/1]";
+    }
+    return "aspect-square";
+  };
+
   return (
     <section className="relative w-full overflow-hidden bg-white py-16 md:py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
@@ -41,82 +87,46 @@ const GallerySection = () => {
           </Link>
         </div>
 
-        {/* Gallery Grid - Masonry Style */}
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4 lg:gap-6">
-          {/* Large Left Image */}
-          <div 
-            className="col-span-2 row-span-2"
-            data-aos="fade-up"
-          >
-            <div className="group relative h-full min-h-[280px] overflow-hidden rounded-2xl md:min-h-[350px] md:rounded-3xl lg:min-h-[400px]">
-              <Image
-                src={galleryImages[0]}
-                alt="Gallery image 1"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-              <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-full bg-white/20 px-4 py-2 opacity-0 backdrop-blur-sm transition-all group-hover:opacity-100">
-                <FaCamera className="text-white" />
-                <span className="text-sm font-medium text-white">School Events</span>
-              </div>
-            </div>
+        {/* Gallery Grid */}
+        {loading ? (
+          <div className="flex items-center justify-center py-20">
+            <div className="h-10 w-10 animate-spin rounded-full border-4 border-primary border-t-transparent" />
           </div>
-
-          {/* Top Right Images */}
-          {galleryImages.slice(1, 3).map((image, index) => (
-            <div 
-              key={index}
-              className="group relative aspect-square overflow-hidden rounded-xl md:rounded-2xl"
-              data-aos="fade-up"
-              data-aos-delay={(index + 1) * 100}
-            >
-              <Image
-                src={image}
-                alt={`Gallery image ${index + 2}`}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-black/0 transition-all group-hover:bg-black/30" />
-            </div>
-          ))}
-
-          {/* Bottom Right Images */}
-          {galleryImages.slice(3, 5).map((image, index) => (
-            <div 
-              key={index}
-              className="group relative aspect-square overflow-hidden rounded-xl md:rounded-2xl"
-              data-aos="fade-up"
-              data-aos-delay={(index + 3) * 100}
-            >
-              <Image
-                src={image}
-                alt={`Gallery image ${index + 4}`}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-black/0 transition-all group-hover:bg-black/30" />
-            </div>
-          ))}
-
-          {/* Bottom Row */}
-          {galleryImages.slice(5, 8).map((image, index) => (
-            <div 
-              key={index}
-              className={`group relative overflow-hidden rounded-xl md:rounded-2xl ${index === 0 ? 'col-span-2 aspect-[2/1]' : 'aspect-square'}`}
-              data-aos="fade-up"
-              data-aos-delay={(index + 5) * 100}
-            >
-              <Image
-                src={image}
-                alt={`Gallery image ${index + 6}`}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-black/0 transition-all group-hover:bg-black/30" />
-            </div>
-          ))}
-        </div>
+        ) : (
+          <div className={`grid gap-3 md:gap-4 lg:gap-5 ${
+            galleryImages.length <= 4 
+              ? 'grid-cols-2 md:grid-cols-4' 
+              : 'grid-cols-2 md:grid-cols-4'
+          }`}>
+            {galleryImages.map((image, index) => (
+              <div
+                key={image.name || index}
+                className={`group relative overflow-hidden rounded-xl md:rounded-2xl ${getGridItemClass(index, galleryImages.length)}`}
+                data-aos="fade-up"
+                data-aos-delay={index * 50}
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt || `Gallery image ${index + 1}`}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  unoptimized
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                
+                {/* First image badge */}
+                {index === 0 && (
+                  <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 flex items-center gap-2 rounded-full bg-white/20 px-3 py-1.5 md:px-4 md:py-2 opacity-0 backdrop-blur-sm transition-all group-hover:opacity-100">
+                    <FaCamera className="text-white text-sm" />
+                    <span className="text-xs md:text-sm font-medium text-white">School Events</span>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

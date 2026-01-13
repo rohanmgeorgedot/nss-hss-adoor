@@ -1,18 +1,34 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { FaTimes, FaChevronLeft, FaChevronRight, FaImages } from "react-icons/fa";
-
-// Generate gallery images array
-const galleryImages = Array.from({ length: 24 }, (_, i) => ({
-  src: `/images/gallery/${i + 1}.webp`,
-  alt: `NSS HSS Adoor Gallery Image ${i + 1}`,
-}));
+import { FaTimes, FaChevronLeft, FaChevronRight, FaImages, FaSpinner } from "react-icons/fa";
+import { getGalleryImages } from "@lib/supabase";
 
 const Gallery = () => {
+  const [galleryImages, setGalleryImages] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Fetch images from Supabase on mount
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const { data, error } = await getGalleryImages();
+        
+        if (!error && data) {
+          setGalleryImages(data);
+        }
+      } catch (err) {
+        console.error("Error fetching gallery images:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchImages();
+  }, []);
 
   const openLightbox = (index) => {
     setCurrentIndex(index);
@@ -116,30 +132,55 @@ const Gallery = () => {
       {/* Gallery Grid */}
       <section className="py-12 md:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-5 md:px-8 lg:px-16">
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:gap-4">
-            {galleryImages.map((image, index) => (
-              <div
-                key={index}
-                className="group relative aspect-square cursor-pointer overflow-hidden rounded-xl bg-gray-100"
-                onClick={() => openLightbox(index)}
-                data-aos="fade-up"
-                data-aos-delay={(index % 8) * 50}
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-all group-hover:bg-black/40">
-                  <div className="scale-0 rounded-full bg-white p-3 transition-transform group-hover:scale-100">
-                    <FaImages className="text-lg text-primary" />
+          {/* Loading State */}
+          {loading && (
+            <div className="flex flex-col items-center justify-center py-20">
+              <FaSpinner className="animate-spin text-4xl text-primary mb-4" />
+              <p className="text-gray-500">Loading gallery...</p>
+            </div>
+          )}
+
+          {/* Empty State */}
+          {!loading && galleryImages.length === 0 && (
+            <div className="flex flex-col items-center justify-center py-20 text-center">
+              <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+                <FaImages className="text-3xl text-gray-400" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-700 mb-2">No Photos Yet</h3>
+              <p className="text-gray-500 max-w-md">
+                Our gallery is being updated. Check back soon for photos from school events and activities.
+              </p>
+            </div>
+          )}
+
+          {/* Gallery Grid */}
+          {!loading && galleryImages.length > 0 && (
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:gap-4">
+              {galleryImages.map((image, index) => (
+                <div
+                  key={image.name || index}
+                  className="group relative aspect-square cursor-pointer overflow-hidden rounded-xl bg-gray-100"
+                  onClick={() => openLightbox(index)}
+                  data-aos="fade-up"
+                  data-aos-delay={(index % 8) * 50}
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    unoptimized
+                  />
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-all group-hover:bg-black/40">
+                    <div className="scale-0 rounded-full bg-white p-3 transition-transform group-hover:scale-100">
+                      <FaImages className="text-lg text-primary" />
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -177,6 +218,7 @@ const Gallery = () => {
               alt={galleryImages[currentIndex].alt}
               fill
               className="object-contain"
+              unoptimized
             />
           </div>
 
