@@ -82,10 +82,10 @@ export default function Login() {
       }} />
 
       <div className="relative w-full max-w-sm sm:max-w-md md:max-w-lg">
-        {/* Back to Website Link */}
+        {/* Back to Website Link - Desktop Only */}
         <Link 
           href="/" 
-          className="mb-6 inline-flex items-center gap-2 text-sm md:text-base text-gray-400 hover:text-white transition-colors"
+          className="mb-6 hidden lg:inline-flex items-center gap-2 text-sm md:text-base text-gray-400 hover:text-white transition-colors"
         >
           <FaArrowLeft className="text-xs md:text-sm" />
           Back to Website

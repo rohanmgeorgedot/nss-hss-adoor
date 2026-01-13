@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { 
   FaHome, FaCalendarAlt, FaChartPie, FaSignOutAlt,
-  FaCheckCircle, FaTimesCircle, FaClock, FaUserGraduate
+  FaCheckCircle, FaTimesCircle, FaClock, FaUserGraduate, FaGlobe
 } from "react-icons/fa";
 import { useAuth } from "@app/app/layout";
 import { supabase } from "@lib/supabase";
@@ -144,13 +144,23 @@ export default function StudentDashboard() {
               <p className="text-xs md:text-xs sm:text-sm text-gray-500">{studentData.name}</p>
             </div>
           </div>
-          <button
-            onClick={handleLogout}
-            className="p-2 md:p-3 text-red-500 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
-            title="Logout"
-          >
-            <FaSignOutAlt className="text-base md:text-lg" />
-          </button>
+          <div className="flex items-center gap-2 md:gap-3">
+            {/* Back to Website - Desktop Only */}
+            <Link
+              href="/"
+              className="hidden lg:flex items-center gap-2 px-3 py-2 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
+            >
+              <FaGlobe className="text-base" />
+              <span>Website</span>
+            </Link>
+            <button
+              onClick={handleLogout}
+              className="p-2 md:p-3 text-red-500 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
+              title="Logout"
+            >
+              <FaSignOutAlt className="text-base md:text-lg" />
+            </button>
+          </div>
         </div>
       </header>
 
